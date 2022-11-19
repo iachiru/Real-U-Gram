@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import { processFirebaseErrors } from "../firebase/errors";
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ function LogIn() {
     } catch (error) {
       setLoading(false);
       console.log(error);
-      setError(error.message);
+      setError(processFirebaseErrors(error.message));
     }
   };
 
