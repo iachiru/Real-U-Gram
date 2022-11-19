@@ -1,7 +1,8 @@
-import React, { useState, useNavigate } from "react";
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
-export default function SignUp() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -50,3 +51,5 @@ export default function SignUp() {
     </form>
   );
 }
+
+export default SignUp;
