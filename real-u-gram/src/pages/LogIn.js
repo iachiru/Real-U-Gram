@@ -2,20 +2,20 @@ import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
-function SignUp() {
+function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const navigate = useNavigate();
 
-  const { signUp } = useAuth();
+  const { logIn } = useAuth();
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      await signUp({ email, password });
+      await logIn({ email, password });
       setLoading(false);
       navigate("/");
     } catch (error) {
@@ -31,7 +31,7 @@ function SignUp() {
     <>
       <Link to="/">Go Home</Link>
       <form onSubmit={onSubmit}>
-        <h1>Sign Up</h1>
+        <h1>Log In</h1>
         {error && <div>{error}</div>}
         <label>Email</label>
         <input
@@ -52,10 +52,10 @@ function SignUp() {
         <input type="submit" value="Submit" />
       </form>
       <p>
-        Already a member? <Link to="/login">Log In</Link>
+        New to our website? <Link to="/signup">Sign Up</Link>
       </p>
     </>
   );
 }
 
-export default SignUp;
+export default LogIn;
