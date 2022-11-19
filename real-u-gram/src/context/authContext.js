@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
 
   const logOut = async () => {
     //user logout
-    await auth.logout();
+    await auth.signOut();
   };
 
   useEffect(() => {
