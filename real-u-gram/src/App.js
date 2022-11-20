@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useNavigate } from "react-router-dom";
+import "./App.css";
+import { useAuth } from "./context/authContext";
 
 function App() {
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
+
+  if (user)
+    return (
+      <div>
+        <h2>Hello {user.email}</h2>
+        <button onClick={logOut}>Log Out</button>
+      </div>
+    );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to Real-U-Gram!</h1>
+      <button onClick={() => navigate("/login")}>Log In</button>
+      <button onClick={() => navigate("/signup")}>Sign Up</button>
     </div>
   );
 }
