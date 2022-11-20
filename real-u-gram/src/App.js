@@ -15,6 +15,7 @@ function App() {
     );
   return (
     <div className="App">
+      <div></div>
       <h1>Welcome to Real-U-Gram!</h1>
       <button onClick={() => navigate("/login")}>Log In</button>
       <button onClick={() => navigate("/signup")}>Sign Up</button>
