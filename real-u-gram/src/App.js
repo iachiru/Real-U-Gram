@@ -11,6 +11,7 @@ function App() {
       <div>
         <h2>Hello {user.email}</h2>
         <button onClick={logOut}>Log Out</button>
+        <button onClick={() => navigate("/profile")}>Profile</button>
       </div>
     );
   return (
