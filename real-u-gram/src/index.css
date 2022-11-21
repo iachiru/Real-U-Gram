@@ -1,13 +1,14 @@
-* {
-  box-sizing: border-box;
-}
-
 html,
 body,
 #root {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+
+@font-face {
+  font-family: "Fredoka";
+  src: url(../fonts/Fredoka.ttf);
 }
 
 body {
@@ -17,9 +18,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #a5d1938f;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  display: grid;
+  background: #ffffff;
+  width: 100%;
+  font-family: "Fredoka";
 }

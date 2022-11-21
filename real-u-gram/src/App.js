@@ -8,16 +8,18 @@ function App() {
 
   if (user)
     return (
-      <div>
+      <div className="hello">
         <h2>Hello {user.email}</h2>
         <button onClick={logOut}>Log Out</button>
         <button onClick={() => navigate("/profile")}>Profile</button>
       </div>
     );
   return (
-    <div className="App">
-      <div></div>
-      <h1>Welcome to Real-U-Gram!</h1>
+    <div>
+      <div className="App">
+        <h1>Welcome to Real-U-Gram!</h1>
+        <h4>Where you can (and should!) be yourself</h4>
+      </div>
       <button onClick={() => navigate("/login")}>Log In</button>
       <button onClick={() => navigate("/signup")}>Sign Up</button>
     </div>
