@@ -1,6 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./context/authContext";
+import Logo from "../src/images/logoRUG.jpg";
+
+<img src={require("../src/images/")} />;
+
+function logo() {
+  return (
+    <div className="logo" style={{ margin: "100px" }}>
+      <img src={Logo} alt="RUG" style={{ width: "400px" }} />
+    </div>
+  );
+}
+logo();
 
 function App() {
   const { user, logOut } = useAuth();
