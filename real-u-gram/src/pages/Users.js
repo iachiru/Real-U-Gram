@@ -19,7 +19,7 @@ function Users() {
   const navigate = useNavigate();
 
   const { addProfile } = useProfile();
-  const { user } = useAuth();
+  const { user, userLoading } = useAuth();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -36,12 +36,12 @@ function Users() {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (!user && !userLoading) {
       navigate("/login");
     }
-  }, [user]);
+  }, [user, userLoading, navigate]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading || userLoading) return <div>Loading...</div>;
 
   return (
     <>
