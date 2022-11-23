@@ -23,9 +23,18 @@ function Users() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (!profile.name) {
+      return setError("Name is required");
+    }
+
+    if (!profile.city) {
+      return setError("City is required");
+    }
+
     try {
       setLoading(true);
-      await addProfile(profile);
+      await addProfile({ ...profile, userId: user.uid });
       setLoading(false);
       navigate("/");
     } catch (error) {
