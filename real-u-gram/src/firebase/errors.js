@@ -8,6 +8,8 @@ export const processFirebaseErrors = (msg) => {
       return "Cannot process request";
     case "Firebase: Password should be at least 6 characters (auth/weak-password).":
       return "Password should be at least 6 characters";
+    case "Firebase: Error (auth/wrong-password).":
+      return "The password provided is incorrect";
     default:
       return msg;
   }

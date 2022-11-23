@@ -1,6 +1,16 @@
 import { serverTimestamp } from "firebase/firestore";
+import { useState } from "react";
 import { createContext, useContext } from "react";
-import { addDoc, collection, database } from "../firebase/Firebase";
+import {
+  addDoc,
+  collection,
+  database,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "../firebase/Firebase";
 
 const ProfileContext = createContext();
 
@@ -10,11 +20,13 @@ const useProfile = () => {
 
 const ProfileProvider = ({ children }) => {
   //Create (POST) ADD
+  const [userProfile, setUserProfile] = useState("");
 
   const addProfile = async (user) => {
     if (!user.userId) {
       throw new Error("User id is mandatory");
     }
+
     await addDoc(collection(database, "profiles"), {
       ...user,
       createdAt: serverTimestamp(),
@@ -22,7 +34,18 @@ const ProfileProvider = ({ children }) => {
     });
   };
 
-  const exports = { addProfile };
+  //GET user profile
+
+  const getUserProfile = async (userId) => {
+    const colRef = collection(database, "profiles");
+    const q = query(colRef, where("userId", "==", userId));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      setUserProfile(doc.data());
+    });
+  };
+
+  const exports = { addProfile, getUserProfile, userProfile };
   return (
     <ProfileContext.Provider value={exports}>
       {children}

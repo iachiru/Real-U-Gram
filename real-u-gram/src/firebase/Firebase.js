@@ -5,7 +5,16 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -30,4 +39,9 @@ export {
   signInWithEmailAndPassword,
   collection,
   addDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
 };

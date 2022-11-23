@@ -18,14 +18,25 @@ function Users() {
   const [error, setError] = useState();
   const navigate = useNavigate();
 
-  const { addProfile } = useProfile();
-  const { user } = useAuth();
+  const { addProfile, getUserProfile, userProfile } = useProfile();
+  const { user, userLoading } = useAuth();
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (!profile.name) {
+      return setError("Name is required");
+    }
+
+    if (!profile.city) {
+      return setError("City is required");
+    }
+
+    setError("");
+
     try {
       setLoading(true);
-      await addProfile(profile);
+      await addProfile({ ...profile, userId: user.uid });
       setLoading(false);
       navigate("/");
     } catch (error) {
@@ -36,12 +47,27 @@ function Users() {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (user) getUserProfile(user.uid);
+  }, [user, getUserProfile]);
+
+  useEffect(() => {
+    if (!user && !userLoading) {
       navigate("/login");
     }
-  }, [user]);
+  }, [user, userLoading, navigate]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading || userLoading) return <div>Loading...</div>;
+
+  if (userProfile)
+    return (
+      <div>
+        <h1>{userProfile.name}</h1>
+        <p>{userProfile.alias}</p>
+        <p>{userProfile.city}</p>
+        <p>{userProfile.bio}</p>
+        <button>Edit</button>
+      </div>
+    );
 
   return (
     <>
