@@ -31,31 +31,53 @@ function SignUp() {
 
   return (
     <>
-      <Link to="/">Go Home</Link>
-      <form onSubmit={onSubmit}>
-        <h1>Sign Up</h1>
+      <Link className="home" to="/">
+        go home
+      </Link>
+      <div className="Welcome">
+        <img src="logoRUG.png" alt="backgroundpicture" />
+        <h1>Welcome to Real-U-Gram!</h1>
+        <h4>Where you can (and should!) be yourself</h4>
+      </div>
+      <form onSubmit={onSubmit} className="signupForm">
         {error && <div>{error}</div>}
-        <label>Email</label>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <input type="submit" value="Submit" />
+        <div className="emailDiv">
+          <input
+            className="email"
+            type="text"
+            placeholder="e-mail address"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className="passDiv">
+          <input
+            type="password"
+            className="pass"
+            placeholder="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div className="signupDiv">
+          <input type="submit" value="sign up" className="signupButton" />
+        </div>
       </form>
-      <p>
-        Already a member? <Link to="/login">Log In</Link>
-      </p>
+      <div className="littleLoginDiv">
+        <p>
+          Already a member?{" "}
+          <button className="littleLogin">
+            <Link to="/login">log in</Link>
+          </button>
+        </p>
+      </div>
+      <footer>
+        <p>© FBW team - all rights reserved 2022 </p>
+      </footer>
     </>
   );
 }

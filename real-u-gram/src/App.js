@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./context/authContext";
-import Logo from "../src/images/logoRUG.jpg";
 
-<img src={require("../src/images/")} />;
+//import logo from "./logo
 
-function logo() {
-  return (
-    <div className="logo" style={{ margin: "100px" }}>
-      <img src={Logo} alt="RUG" style={{ width: "400px" }} />
-    </div>
-  );
-}
-logo();
+//function logotype() {
+//return (
+// <div className="logo">
+//   <img src={logo.src} alt="backgroundpicture" />
+//  </div>
+//) );
+//}*/
+//logotype(logo);*
 
 function App() {
   const { user, logOut } = useAuth();
@@ -28,12 +27,26 @@ function App() {
     );
   return (
     <div>
-      <div className="App">
+      <img src="logoRUG.png" alt="backgroundpicture" />
+      <div className="Welcome">
         <h1>Welcome to Real-U-Gram!</h1>
         <h4>Where you can (and should!) be yourself</h4>
       </div>
-      <button onClick={() => navigate("/login")}>Log In</button>
-      <button onClick={() => navigate("/signup")}>Sign Up</button>
+      <div className="loginDiv">
+        <button className="loginButton" onClick={() => navigate("/login")}>
+          log in
+        </button>
+      </div>
+      <div className="signupDiv">
+        <button className="signupButton" onClick={() => navigate("/signup")}>
+          sign up
+        </button>
+      </div>
+      <div>
+        <footer>
+          <p>© FBW team - all rights reserved 2022 </p>
+        </footer>
+      </div>
     </div>
   );
 }
