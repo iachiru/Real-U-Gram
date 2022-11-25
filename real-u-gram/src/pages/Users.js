@@ -4,31 +4,38 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useProfile } from "../context/ProfileContext";
 import { processFirebaseErrors } from "../firebase/errors";
-import { addProfile } from "../context/ProfileContext";
 
 function Users() {
-  const [profile, setProfile] = useState({
+  const {
+    addProfile,
+    getUserProfile,
+    userProfile,
+    editUserProfile,
+    deleteUserProfile,
+    clearProfile,
+  } = useProfile();
+  const { user, userLoading } = useAuth();
+  const [editor, setEditor] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+  const navigate = useNavigate();
+  const emptyForm = {
     name: "",
     alias: "",
     city: "",
     bio: "",
-  });
+  };
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
-  const navigate = useNavigate();
-
-  const { addProfile, getUserProfile, userProfile } = useProfile();
-  const { user, userLoading } = useAuth();
+  const [form, setForm] = useState(userProfile ?? emptyForm);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (!profile.name) {
+    if (!form.name) {
       return setError("Name is required");
     }
 
-    if (!profile.city) {
+    if (!form.city) {
       return setError("City is required");
     }
 
@@ -36,13 +43,24 @@ function Users() {
 
     try {
       setLoading(true);
-      await addProfile({ ...profile, userId: user.uid });
+      if (!editor) {
+        await addProfile({ ...form, userId: user.uid });
+
+        if (editor) {
+          await editUserProfile({
+            ...form,
+            userId: user.uid,
+          });
+        }
+      }
+      await getUserProfile(user.uid);
+      setEditor(false);
       setLoading(false);
-      navigate("/");
+      setError("");
     } catch (error) {
-      setLoading(false);
       console.log(error);
       setError(processFirebaseErrors(error.message));
+      setLoading(false);
     }
   };
 
@@ -56,16 +74,37 @@ function Users() {
     }
   }, [user, userLoading, navigate]);
 
+  const openEditor = () => {
+    setEditor(true);
+    setForm(userProfile);
+  };
+
+  const deleteDocument = async () => {
+    try {
+      setLoading(true);
+      await deleteUserProfile(userProfile.id);
+      clearProfile();
+      setError("");
+      setForm(emptyForm);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
   if (loading || userLoading) return <div>Loading...</div>;
 
-  if (userProfile)
+  if (userProfile && !editor)
     return (
       <div>
         <h1>{userProfile.name}</h1>
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
         <p>{userProfile.bio}</p>
-        <button>Edit</button>
+        <button onClick={openEditor}>Edit</button>
+        <button onClick={deleteDocument}>Delete</button>
       </div>
     );
 
@@ -78,37 +117,40 @@ function Users() {
         <label>Name</label>
         <input
           type="text"
-          value={profile.name}
+          value={form.name}
           onChange={(e) => {
-            setProfile({ ...profile, name: e.target.value });
+            setForm({ ...form, name: e.target.value });
           }}
         />
         <label>Alias</label>
         <input
           type="text"
-          value={profile.alias}
+          value={form.alias}
           onChange={(e) => {
-            setProfile({ ...profile, alias: e.target.value });
+            setForm({ ...form, alias: e.target.value });
           }}
         />
         <label>City</label>
         <input
           type="text"
-          value={profile.city}
+          value={form.city}
           onChange={(e) => {
-            setProfile({ ...profile, city: e.target.value });
+            setForm({ ...form, city: e.target.value });
           }}
         />
         <label>Biography</label>
         <input
           type="text"
-          value={profile.bio}
+          value={form.bio}
           onChange={(e) => {
-            setProfile({ ...profile, bio: e.target.value });
+            setForm({ ...form, bio: e.target.value });
           }}
         />
-
-        <input type="submit" value="Submit" />
+        {!editor ? (
+          <input type="submit" value="Submit" />
+        ) : (
+          <input type="submit" value="Edit" />
+        )}
       </form>
     </>
   );
