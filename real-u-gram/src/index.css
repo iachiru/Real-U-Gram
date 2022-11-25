@@ -31,7 +31,7 @@ code {
 }
 
 .Welcome {
-  margin-top: 150px;
+  margin-top: 30px;
   display: grid;
   background: #ffffff;
   width: 100%;
@@ -111,7 +111,8 @@ code {
 }*/
 
 .home {
-  margin: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
   font-size: 18px;
 }
 .signupDiv {
@@ -150,7 +151,7 @@ a:active {
   color: #5a6d53;
   font-family: "Fredoka";
   font-size: 16px;
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .littleLoginDiv {
@@ -168,7 +169,7 @@ a:active {
 .passDiv {
   display: flex;
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   border: 0;
   border-radius: 10px;
   font-size: 20px;
@@ -196,5 +197,22 @@ footer {
   font-size: 12x;
   color: #5a6d53;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
+}
+
+.logoRUG {
+  width: 165px;
+  height: 165px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.logoDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -34,8 +34,10 @@ function SignUp() {
       <Link className="home" to="/">
         go home
       </Link>
+      <div className="logoDiv">
+        <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
+      </div>
       <div className="Welcome">
-        <img src="logoRUG.png" alt="backgroundpicture" />
         <h1>Welcome to Real-U-Gram!</h1>
         <h4>Where you can (and should!) be yourself</h4>
       </div>
