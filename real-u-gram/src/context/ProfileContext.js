@@ -21,13 +21,13 @@ const ProfileProvider = ({ children }) => {
   //Create (POST) ADD
   const [userProfile, setUserProfile] = useState();
 
-  const addProfile = async (user) => {
-    if (!user.userId) {
+  const addProfile = async (profile) => {
+    if (!profile.userId) {
       throw new Error("User id is mandatory");
     }
 
     await addDoc(collection(database, "profiles"), {
-      ...user,
+      ...profile,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
@@ -54,11 +54,13 @@ const ProfileProvider = ({ children }) => {
       throw new Error("Profile needs an id");
     }
     const docRef = doc(database, "profiles", profile.id);
+
     try {
       await setDoc(docRef, {
         ...profile,
         updatedAt: serverTimestamp(),
       });
+      console.log(profile);
     } catch (err) {
       console.log(err);
     }
