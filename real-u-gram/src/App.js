@@ -33,10 +33,8 @@ function App() {
           sign up
         </button>
       </div>
-      <div>
-        <footer>
-          <p>© FBW team - all rights reserved 2022 </p>
-        </footer>
+      <div className="rightsApp">
+        <p>© FBW team - all rights reserved 2022 </p>
       </div>
     </div>
   );

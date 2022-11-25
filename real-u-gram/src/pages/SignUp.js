@@ -77,9 +77,9 @@ function SignUp() {
           </button>
         </p>
       </div>
-      <footer>
+      <div className="rightsSignup">
         <p>© FBW team - all rights reserved 2022 </p>
-      </footer>
+      </div>
     </>
   );
 }
