@@ -47,8 +47,7 @@ code {
   color: #5a6d53;
   align-items: center;
   justify-content: center;
-  margin: 20px;
-  margin-top: 40px;
+  margin: 40px;
 }
 
 .loginButton {
@@ -122,7 +121,7 @@ code {
   color: #5a6d53;
   align-items: center;
   justify-content: center;
-  margin: 20 px;
+  margin: 40 px;
 }
 a:hover {
   color: #ffffff;
@@ -192,12 +191,19 @@ a:active {
   border-radius: 10px;
 }
 
-footer {
+.rightsApp {
   font-family: "Fredoka";
   font-size: 12x;
   color: #5a6d53;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 100px;
+}
+
+.rightsSignup {
+  font-family: "Fredoka";
+  font-size: 12x;
+  color: #5a6d53;
+  text-align: center;
 }
 
 .logoRUG {
