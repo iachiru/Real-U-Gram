@@ -27,8 +27,14 @@ code {
 }
 
 .App {
+  margin-top: 100px;
   display: grid;
   background: #ffffff;
   width: 100%;
   font-family: "Fredoka";
+  color: #5a6d53;
+}
+
+.logo {
+  display: grid;
 }
