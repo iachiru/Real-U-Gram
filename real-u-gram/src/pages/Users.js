@@ -77,6 +77,7 @@ function Users() {
   const openEditor = () => {
     setEditor(true);
     setForm(userProfile);
+    console.log(userProfile);
   };
 
   const deleteDocument = async () => {
