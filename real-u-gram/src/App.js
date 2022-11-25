@@ -2,17 +2,6 @@ import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./context/authContext";
 
-//import logo from "./logo
-
-//function logotype() {
-//return (
-// <div className="logo">
-//   <img src={logo.src} alt="backgroundpicture" />
-//  </div>
-//) );
-//}*/
-//logotype(logo);*
-
 function App() {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
@@ -27,7 +16,9 @@ function App() {
     );
   return (
     <div>
-      <img src="logoRUG.png" alt="backgroundpicture" />
+      <div className="logoDiv">
+        <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
+      </div>
       <div className="Welcome">
         <h1>Welcome to Real-U-Gram!</h1>
         <h4>Where you can (and should!) be yourself</h4>
