@@ -71,7 +71,7 @@ function SignUp() {
       </form>
       <div className="littleLoginDiv">
         <p>
-          Already a member?{" "}
+          already a member?{" "}
           <button className="littleLogin">
             <Link to="/login">log in</Link>
           </button>
