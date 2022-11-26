@@ -30,31 +30,55 @@ function LogIn() {
 
   return (
     <>
-      <Link to="/">Go Home</Link>
+      <Link className="home" to="/">
+        go home
+      </Link>
+      <div className="logoDiv">
+        <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
+      </div>
+      <div className="Welcome">
+        <h2>Welcome back to Real-U-Gram!</h2>
+        <h4>Where you can (and should!) be yourself</h4>
+      </div>
       <form onSubmit={onSubmit}>
-        <h1>Log In</h1>
         {error && <div>{error}</div>}
-        <label>Email</label>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <input type="submit" value="Submit" />
+        <div className="emailDiv">
+          <input
+            className="email"
+            placeholder="e-mail address"
+            type="text"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className="passDiv">
+          <input
+            className="pass"
+            placeholder="password"
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div className="loginDiv2">
+          <input type="submit" value="log in" className="loginButton" />
+        </div>
       </form>
-      <p>
-        New to our website? <Link to="/signup">Sign Up</Link>
-      </p>
+      <div className="littleSignupDiv">
+        <p>
+          don't have an account?{" "}
+          <button className="littleSignup">
+            <Link to="/SignUp">sign up</Link>
+          </button>
+        </p>
+      </div>
+      <div className="rightsLogin">
+        <p>© FBW team - all rights reserved 2022 </p>
+      </div>
     </>
   );
 }
