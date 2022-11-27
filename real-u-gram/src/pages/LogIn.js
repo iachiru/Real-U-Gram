@@ -36,8 +36,12 @@ function LogIn() {
       <div className="logoDiv">
         <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
       </div>
-      <div className="Welcome">
-        <h2>Welcome back to Real-U-Gram!</h2>
+      <div className="welcome">
+        <h2 className="title">
+          <span>Welcome back to Real-</span>
+          <span className="title-word title-word-u">U</span>
+          <span>-Gram</span>
+        </h2>
         <h4>Where you can (and should!) be yourself</h4>
       </div>
       <form onSubmit={onSubmit}>
@@ -56,6 +60,7 @@ function LogIn() {
         <div className="passDiv">
           <input
             className="userPass"
+            autoComplete="currentPassword"
             placeholder="password"
             type="password"
             value={password}

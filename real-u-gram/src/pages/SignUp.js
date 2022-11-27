@@ -36,8 +36,12 @@ function SignUp() {
       <div className="logoDiv">
         <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
       </div>
-      <div className="Welcome">
-        <h1>Welcome to Real-U-Gram!</h1>
+      <div className="welcome">
+        <h1 className="title">
+          <span>Welcome to Real-</span>
+          <span className="title-word title-word-u">U</span>
+          <span>-Gram</span>
+        </h1>
         <h4>Where you can (and should!) be yourself</h4>
       </div>
       <form onSubmit={onSubmit} className="signupForm">
@@ -56,6 +60,7 @@ function SignUp() {
         <div className="passDiv">
           <input
             type="password"
+            autoComplete="currentPassword"
             className="userPass"
             placeholder="password"
             value={password}
