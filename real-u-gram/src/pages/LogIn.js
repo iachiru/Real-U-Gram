@@ -55,7 +55,7 @@ function LogIn() {
         </div>
         <div className="passDiv">
           <input
-            className="pass"
+            className="userPass"
             placeholder="password"
             type="password"
             value={password}
