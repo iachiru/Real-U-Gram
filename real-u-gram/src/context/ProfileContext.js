@@ -49,7 +49,7 @@ const ProfileProvider = ({ children }) => {
 
   //Update profile
 
-  const editUserProfile = async (profile) => {
+  const editUserProfile = async ({ profile }) => {
     if (!profile.id) {
       throw new Error("Profile needs an id");
     }
@@ -60,7 +60,6 @@ const ProfileProvider = ({ children }) => {
         ...profile,
         updatedAt: serverTimestamp(),
       });
-      console.log(profile);
     } catch (err) {
       console.log(err);
     }
@@ -84,6 +83,7 @@ const ProfileProvider = ({ children }) => {
     editUserProfile,
     deleteUserProfile,
     clearProfile,
+    setUserProfile,
   };
   return (
     <ProfileContext.Provider value={exports}>

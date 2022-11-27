@@ -1,3 +1,4 @@
+import { updatePassword } from "firebase/auth";
 import { useEffect } from "react";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -5,7 +6,11 @@ import { useAuth } from "../context/authContext";
 import { useProfile } from "../context/ProfileContext";
 import { processFirebaseErrors } from "../firebase/errors";
 
-function Users() {
+const Users = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+  const [editor, setEditor] = useState(false);
+
   const {
     addProfile,
     getUserProfile,
@@ -14,11 +19,10 @@ function Users() {
     deleteUserProfile,
     clearProfile,
   } = useProfile();
+
   const { user, userLoading } = useAuth();
-  const [editor, setEditor] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
   const navigate = useNavigate();
+
   const emptyForm = {
     name: "",
     alias: "",
@@ -53,7 +57,8 @@ function Users() {
           });
         }
       }
-      await getUserProfile(user.uid);
+      //await getUserProfile(user.uid);
+
       setEditor(false);
       setLoading(false);
       setError("");
@@ -66,7 +71,7 @@ function Users() {
 
   useEffect(() => {
     if (user) getUserProfile(user.uid);
-  }, [user, getUserProfile]);
+  }, [user]);
 
   useEffect(() => {
     if (!user && !userLoading) {
@@ -77,7 +82,6 @@ function Users() {
   const openEditor = () => {
     setEditor(true);
     setForm(userProfile);
-    console.log(userProfile);
   };
 
   const deleteDocument = async () => {
@@ -155,6 +159,6 @@ function Users() {
       </form>
     </>
   );
-}
+};
 
 export default Users;
