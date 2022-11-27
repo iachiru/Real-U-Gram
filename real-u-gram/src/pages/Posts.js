@@ -6,7 +6,7 @@ export default function Posts() {
   const posts = [
     {
       id: "123",
-      username: "Mocolin el guapin",
+      username: "Mocolin",
       profilePic: Moquito,
       postPhoto: Moquito,
       caption: "Soy Moquito el bonito",

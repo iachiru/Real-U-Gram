@@ -1,3 +1,9 @@
+.post_wrapper {
+  border: 1pt solid black;
+  width: 50%;
+  margin: 0 auto 10px auto;
+}
+
 .post_header img {
   height: 50px;
   width: 50px;
@@ -6,12 +12,8 @@
 
 .post_header {
   display: flex;
-
   height: 50%;
-  width: 50%;
   gap: 2em;
-
-  margin: 20px auto 0 auto;
 }
 
 .post_photo img {
@@ -20,6 +22,26 @@
 
 .post_photo {
   height: 50%;
-  width: 50%;
-  margin: 0 auto 10px auto;
+}
+
+.post_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like_comm_share img {
+  margin-right: 20px;
+}
+
+.post_footer p {
+  font-weight: bold;
+}
+
+.post_comments input {
+  width: 80%;
+  margin: 10px;
+}
+
+.post_comments button {
+  width: 15%;
 }
