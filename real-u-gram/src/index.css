@@ -11,8 +11,85 @@ body,
   src: url(../fonts/Fredoka.ttf);
 }
 
+.title-word {
+  animation: color-animation 5s linear infinite;
+}
+
+.title-word-u {
+  --color-1: #a5d193;
+  --color-2: #5a6d53;
+  --color-3: #9dc78c;
+}
+
+@keyframes color-animation {
+  0% {
+    color: var(--color-1);
+  }
+  33% {
+    color: var(--color-2);
+  }
+  66% {
+    color: var(--color-3);
+  }
+  100% {
+    color: var(--color-1);
+  }
+}
+
+.fadeWelcome,
+.logoRUG {
+  animation: fadeIn 3s;
+  -webkit-animation: fadeIn 3s;
+  -moz-animation: fadeIn 3s;
+  -o-animation: fadeIn 3s;
+  -ms-animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 h1 {
   font-size: 30px;
+  color: #5a6d53;
+  font-family: "Fredoka";
 }
 
 body {
@@ -30,7 +107,7 @@ code {
     monospace;
 }
 
-.Welcome {
+.welcome {
   margin-top: 30px;
   display: grid;
   background: #ffffff;
@@ -115,6 +192,10 @@ code {
   margin-left: 20px;
   font-size: 18px;
 }
+
+.profile {
+  text-align: center;
+}
 .signupDiv,
 .loginDiv2 {
   display: flex;
@@ -144,7 +225,8 @@ a:active {
 }
 
 .littleLogin,
-.littleSignup {
+.littleSignup,
+.submitButton {
   width: 66px;
   height: 34px;
   background: #9dc78c;
@@ -156,7 +238,8 @@ a:active {
 }
 
 .littleLoginDiv,
-.littleSignupDiv {
+.littleSignupDiv,
+.submitButtonDiv {
   display: flex;
   font-family: "Fredoka";
   font-size: 12 px;
@@ -166,7 +249,11 @@ a:active {
 }
 
 .emailDiv,
-.passDiv {
+.passDiv,
+.userNameDiv,
+.aliasDiv,
+.cityDiv,
+.bioDiv {
   display: flex;
   padding: 10px;
   margin: 5px;
@@ -180,7 +267,11 @@ a:active {
 }
 
 .email,
-.userPass {
+.userPass,
+.userName,
+.alias,
+.city,
+.bio {
   font-family: "Fredoka";
   font-size: 25px;
   color: #5a6d53;
@@ -194,18 +285,31 @@ a:active {
 
 .rightsApp {
   font-family: "Fredoka";
-  font-size: 10x;
+  font-size: 15px;
   color: #5a6d53;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .rightsSignup,
-.rightsLogin {
+.rightsLogin,
+.rightsProfile {
   font-family: "Fredoka";
-  font-size: 8ox;
+  font-size: 15px;
   color: #5a6d53;
   text-align: center;
+  margin-top: 10px;
+}
+
+.rightsProfile {
+  font-family: "Fredoka";
+  font-size: 15px;
+  color: #5a6d53;
+  text-align: center;
+  margin-top: 40px;
+}
+.logoAndhomeDiv {
+  margin-top: 20px;
 }
 
 .logoRUG {
@@ -219,8 +323,23 @@ a:active {
   margin-top: 30px;
 }
 
+.logoRUGmini {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  display: flex;
+  float: right;
+  margin-bottom: 30px;
+  margin-right: 40px;
+  margin-top: 10px;
+}
 .logoDiv {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.formProfileDiv {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
