@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./context/authContext";
+import Feed from "./pages/Feed";
 
 function App() {
   const { user, logOut } = useAuth();
@@ -12,6 +13,7 @@ function App() {
         <h2>Hello {user.email}</h2>
         <button onClick={logOut}>Log Out</button>
         <button onClick={() => navigate("/profile")}>Profile</button>
+        <Feed />
       </div>
     );
   return (
@@ -37,6 +39,15 @@ function App() {
           sign up
         </button>
       </div>
+      {/*  <div className="timeline">
+        {posts.map((post) => (
+          <Post
+            username={post.username}
+            caption={post.caption}
+            imageUrl={post.image}
+          />
+        ))}
+      </div> */}
       <div className="rightsApp">
         <p>© FBW team - all rights reserved 2022 </p>
       </div>

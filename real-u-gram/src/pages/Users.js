@@ -5,7 +5,11 @@ import { useAuth } from "../context/authContext";
 import { useProfile } from "../context/ProfileContext";
 import { processFirebaseErrors } from "../firebase/errors";
 
-function Users() {
+const Users = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+  const [editor, setEditor] = useState(false);
+
   const {
     addProfile,
     getUserProfile,
@@ -14,11 +18,10 @@ function Users() {
     deleteUserProfile,
     clearProfile,
   } = useProfile();
+
   const { user, userLoading } = useAuth();
-  const [editor, setEditor] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
   const navigate = useNavigate();
+
   const emptyForm = {
     name: "",
     alias: "",
@@ -53,7 +56,8 @@ function Users() {
           });
         }
       }
-      await getUserProfile(user.uid);
+      //await getUserProfile(user.uid);
+
       setEditor(false);
       setLoading(false);
       setError("");
@@ -66,7 +70,7 @@ function Users() {
 
   useEffect(() => {
     if (user) getUserProfile(user.uid);
-  }, [user, getUserProfile]);
+  }, [user]);
 
   useEffect(() => {
     if (!user && !userLoading) {
@@ -77,7 +81,6 @@ function Users() {
   const openEditor = () => {
     setEditor(true);
     setForm(userProfile);
-    console.log(userProfile);
   };
 
   const deleteDocument = async () => {
@@ -111,77 +114,6 @@ function Users() {
 
   return (
     <>
-      <div className="logoAndhomeDiv">
-        <Link className="home" to="/">
-          go home
-        </Link>
-        <img className="logoRUGmini" src="logoRUG.png" alt="logo real-u-gram" />
-      </div>
-      <div className="welcome">
-        <p></p>
-        <h1 className="profile">
-          <span>yo</span>
-          <span className="title-word title-word-u">u</span>
-          <span>r profile</span>
-        </h1>
-        <p></p>
-      </div>
-      <div className="formProfileDiv">
-        <form onSubmit={onSubmit}>
-          {error && <div>{error}</div>}
-          <div className="userNameDiv">
-            <input
-              className="userName"
-              placeholder="name"
-              type="text"
-              value={profile.name}
-              onChange={(e) => {
-                setProfile({ ...profile, name: e.target.value });
-              }}
-            />
-          </div>
-          <div className="aliasDiv">
-            <input
-              className="alias"
-              placeholder="alias"
-              type="text"
-              value={profile.alias}
-              onChange={(e) => {
-                setProfile({ ...profile, alias: e.target.value });
-              }}
-            />
-          </div>
-          <div className="cityDiv">
-            <input
-              className="city"
-              placeholder="city"
-              type="text"
-              value={profile.city}
-              onChange={(e) => {
-                setProfile({ ...profile, city: e.target.value });
-              }}
-            />
-          </div>
-          <div className="bioDiv">
-            <input
-              className="bio"
-              placeholder="biography"
-              type="text"
-              value={profile.bio}
-              onChange={(e) => {
-                setProfile({ ...profile, bio: e.target.value });
-              }}
-            />
-          </div>
-          <div className="submitButtonDiv">
-            <input className="submitButton" type="submit" value="submit" />
-          </div>
-        </form>
-      </div>
-      <div className="rightsProfile">
-        <p>© FBW team - all rights reserved 2022 </p>
-      </div>
-
       <Link to="/">Go Home</Link>
       <form onSubmit={onSubmit}>
         <h1>Profile</h1>
@@ -224,9 +156,8 @@ function Users() {
           <input type="submit" value="Edit" />
         )}
       </form>
-
     </>
   );
-}
+};
 
 export default Users;
