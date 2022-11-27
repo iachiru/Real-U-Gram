@@ -57,7 +57,7 @@ function SignUp() {
         <div className="passDiv">
           <input
             type="password"
-            className="pass"
+            className="userPass"
             placeholder="password"
             value={password}
             onChange={(e) => {
