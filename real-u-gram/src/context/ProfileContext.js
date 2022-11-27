@@ -17,7 +17,7 @@ const useProfile = () => {
   return useContext(ProfileContext);
 };
 
-const ProfileProvider = ({ children }) => {
+const ProfileProvider = ({ children, setPosts }) => {
   //Create (POST) ADD
   const [userProfile, setUserProfile] = useState();
 

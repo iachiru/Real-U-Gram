@@ -1,0 +1,9 @@
+.stories {
+  display: flex;
+  gap: 20px;
+}
+
+.stories img {
+  border-radius: 50pt;
+  border: 2pt solid red;
+}

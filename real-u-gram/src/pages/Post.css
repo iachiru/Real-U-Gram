@@ -1,0 +1,25 @@
+.post_header img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50pt;
+}
+
+.post_header {
+  display: flex;
+
+  height: 50%;
+  width: 50%;
+  gap: 2em;
+
+  margin: 20px auto 0 auto;
+}
+
+.post_photo img {
+  width: 100%;
+}
+
+.post_photo {
+  height: 50%;
+  width: 50%;
+  margin: 0 auto 10px auto;
+}
