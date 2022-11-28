@@ -11,11 +11,8 @@ body,
   src: url(../fonts/Fredoka.ttf);
 }
 
-.title-word {
-  animation: color-animation 5s linear infinite;
-}
-
 .title-word-u {
+  animation: color-animation 5s linear infinite;
   --color-1: #a5d193;
   --color-2: #5a6d53;
   --color-3: #9dc78c;
@@ -103,10 +100,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Fredoka";
 }
 
+.title {
+  font-size: 40px;
+}
 .welcome {
   margin-top: 30px;
   display: grid;
@@ -168,24 +167,10 @@ code {
   font-family: "Fredoka";
 }
 
-/*.signupButton {
-  width: 66px;
-  height: 40px;
-  background: #9dc78c;
-  border-radius: 10px;
-  border: none;
-  color: #5a6d53;
-  font-family: "Fredoka";
-  font-size: 14px;
-  padding: 10px;
-  margin: 10px;
-}
-
-.signupButton:hover {
+.submitButton:hover {
   font-weight: bold;
-  color: white;
   font-family: "Fredoka";
-}*/
+}
 
 .home {
   margin-top: 20px;
@@ -288,7 +273,7 @@ a:active {
   font-size: 15px;
   color: #5a6d53;
   text-align: center;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .rightsSignup,
@@ -306,7 +291,7 @@ a:active {
   font-size: 15px;
   color: #5a6d53;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .logoAndhomeDiv {
   margin-top: 20px;

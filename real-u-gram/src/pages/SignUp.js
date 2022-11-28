@@ -32,15 +32,15 @@ function SignUp() {
   return (
     <>
       <Link className="home" to="/">
-        go home
+        go back
       </Link>
       <div className="logoDiv">
         <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
       </div>
       <div className="welcome">
-        <h1 className="title">
+        <h1>
           <span>Welcome to Real-</span>
-          <span className="title-word title-word-u">U</span>
+          <span className="title-word-u">U</span>
           <span>-Gram</span>
         </h1>
         <h4>Where you can (and should!) be yourself</h4>

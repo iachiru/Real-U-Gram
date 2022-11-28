@@ -31,15 +31,15 @@ function LogIn() {
   return (
     <>
       <Link className="home" to="/">
-        go home
+        go back
       </Link>
       <div className="logoDiv">
         <img className="logoRUG" src="logoRUG.png" alt="logo real-u-gram" />
       </div>
       <div className="welcome">
-        <h2 className="title">
+        <h2>
           <span>Welcome back to Real-</span>
-          <span className="title-word title-word-u">U</span>
+          <span className="title-word-u">U</span>
           <span>-Gram</span>
         </h2>
         <h4>Where you can (and should!) be yourself</h4>
