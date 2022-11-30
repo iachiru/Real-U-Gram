@@ -23,7 +23,7 @@ function App() {
       </div>
       <div className="welcome">
         <h1 className="title">
-          <span>Welcome to Real-</span>
+          <span>Real-</span>
           <span className="title-word title-word-u">U</span>
           <span>-Gram</span>
         </h1>
