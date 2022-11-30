@@ -233,6 +233,7 @@ a:active {
   justify-content: center;
 }
 
+.formProfileDiv,
 .emailDiv,
 .passDiv,
 .userNameDiv,
@@ -245,10 +246,8 @@ a:active {
   border: 0;
   border-radius: 10px;
   font-size: 20px;
-  font-family: "Fredoka";
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .email,
@@ -261,8 +260,6 @@ a:active {
   font-size: 25px;
   color: #5a6d53;
   display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   border: none;
   border-radius: 10px;

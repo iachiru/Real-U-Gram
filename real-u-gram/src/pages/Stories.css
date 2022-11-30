@@ -1,9 +1,21 @@
 .stories {
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .stories img {
   border-radius: 50pt;
-  border: 2pt solid red;
+  border: 2pt solid #5a6d53;
+  display: flex;
+}
+
+.storyName {
+  font-family: "Fredoka";
+  font-size: 14px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
 }

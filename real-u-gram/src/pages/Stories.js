@@ -9,7 +9,7 @@ export default function Stories() {
 
   useEffect(() => {
     setStories(
-      [...Array(10)].map((profile) => ({
+      [...Array(5)].map((profile) => ({
         userId: faker.datatype.uuid(),
         username: faker.internet.userName(),
         avatar: faker.image.avatar(),
