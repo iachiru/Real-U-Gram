@@ -114,48 +114,80 @@ const Users = () => {
 
   return (
     <>
-      <Link to="/">Go Home</Link>
-      <form onSubmit={onSubmit}>
-        <h1>Profile</h1>
-        {error && <div>{error}</div>}
-        <label>Name</label>
-        <input
-          type="text"
-          value={form.name}
-          onChange={(e) => {
-            setForm({ ...form, name: e.target.value });
-          }}
-        />
-        <label>Alias</label>
-        <input
-          type="text"
-          value={form.alias}
-          onChange={(e) => {
-            setForm({ ...form, alias: e.target.value });
-          }}
-        />
-        <label>City</label>
-        <input
-          type="text"
-          value={form.city}
-          onChange={(e) => {
-            setForm({ ...form, city: e.target.value });
-          }}
-        />
-        <label>Biography</label>
-        <input
-          type="text"
-          value={form.bio}
-          onChange={(e) => {
-            setForm({ ...form, bio: e.target.value });
-          }}
-        />
-        {!editor ? (
-          <input type="submit" value="Submit" />
-        ) : (
-          <input type="submit" value="Edit" />
-        )}
-      </form>
+      <div className="logoAndhomeDiv">
+        <Link className="home" to="/">
+          go back
+        </Link>
+        <img className="logoRUGmini" src="logoRUG.png" alt="logo real-u-gram" />
+      </div>
+      <div className="welcome">
+        <p></p>
+        <h1 className="profile">
+          <span>complete yo</span>
+          <span className="title-word title-word-u">u</span>
+          <span>r profile</span>
+        </h1>
+        <p></p>
+      </div>
+      <div className="formProfileDiv">
+        <form onSubmit={onSubmit}>
+          {error && <div>{error}</div>}
+          <div className="userNameDiv">
+            <input
+              className="userName"
+              placeholder="name"
+              type="text"
+              value={form.name}
+              onChange={(e) => {
+                setForm({ ...form, name: e.target.value });
+              }}
+            />
+          </div>
+          <div className="aliasDiv">
+            <input
+              className="alias"
+              placeholder="alias"
+              type="text"
+              value={form.alias}
+              onChange={(e) => {
+                setForm({ ...form, alias: e.target.value });
+              }}
+            />
+          </div>
+          <div className="cityDiv">
+            <input
+              className="city"
+              placeholder="city"
+              type="text"
+              value={form.city}
+              onChange={(e) => {
+                setForm({ ...form, city: e.target.value });
+              }}
+            />
+          </div>
+          <div className="bioDiv">
+            <input
+              className="bio"
+              placeholder="biography"
+              type="text"
+              value={form.bio}
+              onChange={(e) => {
+                setForm({ ...form, bio: e.target.value });
+              }}
+            />
+          </div>
+          <div className="submitButtonDiv">
+            {!editor ? (
+              <input className="submitButton" type="submit" value="submit" />
+            ) : (
+              <input className="submitButton" type="submit" value="edit" />
+            )}
+          </div>
+        </form>
+      </div>
+      <div className="rightsProfile">
+        <p>© FBW team - all rights reserved 2022 </p>
+      </div>
     </>
   );
 };

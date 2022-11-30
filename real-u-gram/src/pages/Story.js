@@ -4,7 +4,7 @@ export default function Story({ username, avatar }) {
   return (
     <div>
       <img src={avatar} alt="" />
-      <p>{username}</p>
+      <p className="storyName">{username}</p>
     </div>
   );
 }
