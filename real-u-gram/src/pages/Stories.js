@@ -20,16 +20,14 @@ export default function Stories() {
   console.log(stories);
 
   return (
-    <div>
-      <div className="stories">
-        {stories.map((profile) => (
-          <Story
-            key={profile.userID}
-            username={profile.username}
-            avatar={profile.avatar}
-          />
-        ))}
-      </div>
+    <div className="stories">
+      {stories.map((profile) => (
+        <Story
+          key={profile.userID}
+          username={profile.username}
+          avatar={profile.avatar}
+        />
+      ))}
     </div>
   );
 }
