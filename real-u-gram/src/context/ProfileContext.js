@@ -49,11 +49,11 @@ const ProfileProvider = ({ children, setPosts }) => {
 
   //Update profile
 
-  const editUserProfile = async ({ profile }) => {
-    if (!profile.uid) {
+  const editUserProfile = async (profile) => {
+    if (!profile.id) {
       throw new Error("Profile needs an id");
     }
-    const docRef = doc(database, "profiles", profile.uid);
+    const docRef = doc(database, "profiles", profile.id);
 
     try {
       await setDoc(docRef, {

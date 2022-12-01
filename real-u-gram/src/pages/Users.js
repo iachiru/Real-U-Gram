@@ -49,14 +49,15 @@ const Users = () => {
       console.log("editor:", editor);
       if (!editor) {
         await addProfile({ ...form, userId: user.uid });
-
-        if (editor) {
-          await editUserProfile({
-            ...form,
-            userId: user.uid,
-          });
-        }
       }
+      if (editor) {
+        console.log(form);
+        await editUserProfile({
+          ...form,
+          userId: user.uid,
+        });
+      }
+
       await getUserProfile(user.uid);
 
       setEditor(false);
