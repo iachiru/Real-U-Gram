@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import ProfileProvider from "./context/ProfileContext";
 import Users from "./pages/Users";
+import UploadPost from "./pages/UploadPost";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Users />,
+  },
+  {
+    path: "/post",
+    element: <UploadPost />,
   },
 ]);
 

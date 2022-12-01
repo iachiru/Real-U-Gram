@@ -50,10 +50,10 @@ const ProfileProvider = ({ children, setPosts }) => {
   //Update profile
 
   const editUserProfile = async ({ profile }) => {
-    if (!profile.id) {
+    if (!profile.uid) {
       throw new Error("Profile needs an id");
     }
-    const docRef = doc(database, "profiles", profile.id);
+    const docRef = doc(database, "profiles", profile.uid);
 
     try {
       await setDoc(docRef, {

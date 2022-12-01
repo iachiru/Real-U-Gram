@@ -33,7 +33,7 @@ const Users = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(form);
     if (!form.name) {
       return setError("Name is required");
     }
@@ -46,6 +46,7 @@ const Users = () => {
 
     try {
       setLoading(true);
+      console.log("editor:", editor);
       if (!editor) {
         await addProfile({ ...form, userId: user.uid });
 
@@ -56,7 +57,7 @@ const Users = () => {
           });
         }
       }
-      //await getUserProfile(user.uid);
+      await getUserProfile(user.uid);
 
       setEditor(false);
       setLoading(false);

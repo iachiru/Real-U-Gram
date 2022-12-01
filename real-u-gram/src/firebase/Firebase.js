@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
+import { getStorage } from "firebase/storage";
 import {
   getFirestore,
   collection,
@@ -29,12 +30,14 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 const database = getFirestore();
+const storage = getStorage();
 
 export default app;
 
 export {
   database,
   auth,
+  storage,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   collection,
