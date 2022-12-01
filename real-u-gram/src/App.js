@@ -11,8 +11,12 @@ function App() {
     return (
       <div className="hello">
         <h2>Hello {user.email}</h2>
-        <button onClick={logOut}>Log Out</button>
-        <button onClick={() => navigate("/profile")}>Profile</button>
+        <button className="logoutButton" onClick={logOut}>
+          log out
+        </button>
+        <button className="profileButton" onClick={() => navigate("/profile")}>
+          profile
+        </button>
         <Feed />
       </div>
     );

@@ -63,8 +63,10 @@ export default function Header({ username, profilePic, postPhoto, caption }) {
         </div>
         {/* Input */}
         <div className="post_comments">
-          <input type="text" placeholder="Add a comment" />
-          <button>Post</button>
+          <input type="text" placeholder="add a comment" />
+          <button className="postButton" type="submit">
+            Post
+          </button>
         </div>
       </div>
     </div>
