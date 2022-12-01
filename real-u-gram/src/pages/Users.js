@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
@@ -9,6 +9,7 @@ const Users = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [editor, setEditor] = useState(false);
+  const profilePic = useRef(null);
 
   const {
     addProfile,
@@ -23,6 +24,7 @@ const Users = () => {
   const navigate = useNavigate();
 
   const emptyForm = {
+    profilePic: "",
     name: "",
     alias: "",
     city: "",
@@ -33,7 +35,7 @@ const Users = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+
     if (!form.name) {
       return setError("Name is required");
     }
@@ -134,6 +136,17 @@ const Users = () => {
       <div className="formProfileDiv">
         <form onSubmit={onSubmit}>
           {error && <div>{error}</div>}
+          <div className="userImageDiv">
+            <input
+              className="userImage"
+              placeholder="Picture"
+              type="file"
+              value={form.profilePic}
+              onChange={(e) => {
+                setForm({ ...form, profilePic: e.target.value });
+              }}
+            />
+          </div>
           <div className="userNameDiv">
             <input
               className="userName"

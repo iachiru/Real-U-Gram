@@ -24,6 +24,7 @@ export default function Posts() {
   ]; */
 
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -32,6 +33,9 @@ export default function Posts() {
         setPosts(snapshot.docs);
       }
     );
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
@@ -42,10 +46,12 @@ export default function Posts() {
       {posts.map((post) => (
         <Post
           key={post.id}
-          username={post.username}
+          id={post.id}
+          username={post.data().username}
           profilePic={post.profilePic}
-          postPhoto={post.postPhoto}
-          caption={post.caption}
+          postPhoto={post.data().image}
+          caption={post.data().caption}
+          timestamp={post.data().timestamp}
         />
       ))}
     </div>
