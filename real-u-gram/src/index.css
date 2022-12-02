@@ -106,6 +106,7 @@ code {
 .title {
   font-size: 40px;
 }
+.hello,
 .welcome {
   margin-top: 30px;
   display: grid;
@@ -166,7 +167,7 @@ code {
   color: #9dc78c;
   font-family: "Fredoka";
 }
-
+.littleButton:hover,
 .submitButton:hover,
 .logoutButton:hover,
 .profileButton:hover {
@@ -210,7 +211,7 @@ a:active {
   color: #ffffff;
   font-family: "Fredoka";
 }
-
+.littleButton,
 .littleLogin,
 .littleSignup,
 .submitButton,
@@ -225,8 +226,12 @@ a:active {
   font-family: "Fredoka";
   font-size: 16px;
   margin: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
+.littleEditDiv,
 .littleLoginDiv,
 .littleSignupDiv,
 .submitButtonDiv {

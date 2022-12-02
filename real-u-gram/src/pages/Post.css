@@ -62,3 +62,7 @@
   font-family: "Fredoka";
   font-size: 16px;
 }
+
+.buttonsFeed {
+  display: flex;
+}
