@@ -107,8 +107,12 @@ const Users = () => {
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
         <p>{userProfile.bio}</p>
-        <button onClick={openEditor}>Edit</button>
-        <button onClick={deleteDocument}>Delete</button>
+        <button className="littleButton" onClick={openEditor}>
+          edit
+        </button>
+        <button className="littleButton" onClick={deleteDocument}>
+          delete
+        </button>
       </div>
     );
 
@@ -176,11 +180,11 @@ const Users = () => {
               }}
             />
           </div>
-          <div className="submitButtonDiv">
+          <div className="littleEditDiv">
             {!editor ? (
-              <input className="submitButton" type="submit" value="submit" />
+              <input className="littleButton" type="submit" value="submit" />
             ) : (
-              <input className="submitButton" type="submit" value="edit" />
+              <input className="littleButton" type="submit" value="edit" />
             )}
           </div>
         </form>

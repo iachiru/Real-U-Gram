@@ -1,6 +1,6 @@
 .stories {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   text-align: center;
   justify-items: center;
   align-items: center;
@@ -13,22 +13,28 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .storyName {
   font-family: "Fredoka";
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .storyPic {
-  width: 50px;
+  min-width: 20px;
+  max-width: 50px;
   display: flex;
 }
 
 .storyDiv {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   text-align: center;
   justify-self: center;
   margin: 30px;
+  width: 50%;
+  margin: 0 auto 10px auto;
 }

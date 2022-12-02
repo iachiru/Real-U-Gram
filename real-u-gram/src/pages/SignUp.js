@@ -76,7 +76,7 @@ function SignUp() {
       <div className="littleLoginDiv">
         <p>
           already a member?{" "}
-          <button className="littleLogin">
+          <button className="littleButton">
             <Link to="/login">log in</Link>
           </button>
         </p>

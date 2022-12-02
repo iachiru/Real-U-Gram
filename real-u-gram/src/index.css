@@ -166,7 +166,7 @@ code {
   color: #9dc78c;
   font-family: "Fredoka";
 }
-
+.littleButton:hover,
 .submitButton:hover,
 .logoutButton:hover,
 .profileButton:hover {
@@ -210,7 +210,7 @@ a:active {
   color: #ffffff;
   font-family: "Fredoka";
 }
-
+.littleButton,
 .littleLogin,
 .littleSignup,
 .submitButton,
@@ -227,6 +227,7 @@ a:active {
   margin: 10px;
 }
 
+.littleEditDiv,
 .littleLoginDiv,
 .littleSignupDiv,
 .submitButtonDiv {
