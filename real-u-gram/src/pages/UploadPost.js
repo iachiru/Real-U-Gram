@@ -1,4 +1,3 @@
-import { EmailAuthCredential } from "firebase/auth";
 import {
   addDoc,
   collection,
@@ -13,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { database, storage } from "../firebase/Firebase";
 
 export default function UploadPost({ user }) {
+  const [loading, setLoading] = useState(false);
   const captionRef = useRef(null);
   const navigate = useNavigate();
   const imageRef = useRef(null);
@@ -20,8 +20,9 @@ export default function UploadPost({ user }) {
   console.log(image);
 
   const uploadPost = async (e) => {
+    setLoading(true);
     e.preventDefault();
-    console.log("text");
+
     const docRef = await addDoc(collection(database, "posts"), {
       /* userEmail: EmailAuthCredential,
       username: user.alias, */
@@ -30,7 +31,7 @@ export default function UploadPost({ user }) {
     });
     //Path for image to be uploaded
     const imagePath = ref(storage, `posts/${docRef.id}/image`);
-    navigate("/");
+
     //Upload the image to that address
     //then with snapshot declare the download URL
 
@@ -40,6 +41,8 @@ export default function UploadPost({ user }) {
         image: downloadURL,
       });
     });
+    setLoading(false);
+    navigate("/");
   };
 
   //Add image to state
@@ -64,7 +67,9 @@ export default function UploadPost({ user }) {
           onChange={addImageToState}
         />
         <div>
-          <button onClick={() => imageRef.current.click}>Add Post</button>
+          <button onClick={() => imageRef.current.click}>
+            {loading ? "Adding Post" : "Add Post"}
+          </button>
         </div>
       </form>
     </div>

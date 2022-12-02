@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Moquito from "../images/Moquito.jpg";
 import Post from "./Post";
 import { Link } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { database } from "../firebase/Firebase";
 
 export default function Posts() {
-  /*  const posts = [
+  /* const posts = [
     {
       id: "123",
       username: "Mocolin",

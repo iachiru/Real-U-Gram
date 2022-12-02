@@ -4,12 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useProfile } from "../context/ProfileContext";
 import { processFirebaseErrors } from "../firebase/errors";
+import ProfilePicture from "./ProfilePicture";
+import ProfilePhoto from "./ProfilePicture";
 
 const Users = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [editor, setEditor] = useState(false);
-  const profilePic = useRef(null);
+  const imageRef = useRef(null);
+  const [userImage, setUserImage] = useState(null);
+  console.log(userImage);
 
   const {
     addProfile,
@@ -32,6 +36,39 @@ const Users = () => {
   };
 
   const [form, setForm] = useState(userProfile ?? emptyForm);
+
+  /*  const uploadProfilePic = async (e) => {
+    e.preventDefault();
+
+    const docRef = await addDoc(collection(database, "profiles"), {
+      userImage: profilePic,
+    });
+    //Path for image to be uploaded
+    const imagePath = ref(storage, `profiles/${docRef.id}/image`);
+
+    //Upload the image to that address
+    //then with snapshot declare the download URL
+
+    await uploadString(imagePath, userImage, `data_url`).then(
+      async (snapshot) => {
+        const downloadURL = await getDownloadURL(imagePath);
+        await updateDoc(doc(database, "posts", docRef.id), {
+          userImage: downloadURL,
+        });
+      }
+    );
+  };
+*/
+  /*  //Add image to state
+  const addImageToState = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.onload = (readerEvent) => {
+      setUserImage(readerEvent.target.result);
+    };
+  }; */
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -111,6 +148,9 @@ const Users = () => {
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
         <p>{userProfile.bio}</p>
+        <div className="profilePicture">
+          <ProfilePicture />
+        </div>
         <button onClick={openEditor}>Edit</button>
         <button onClick={deleteDocument}>Delete</button>
       </div>
@@ -133,20 +173,13 @@ const Users = () => {
         </h1>
         <p></p>
       </div>
+      <div className="profilePicture">
+        <ProfilePicture />
+      </div>
       <div className="formProfileDiv">
         <form onSubmit={onSubmit}>
           {error && <div>{error}</div>}
-          <div className="userImageDiv">
-            <input
-              className="userImage"
-              placeholder="Picture"
-              type="file"
-              value={form.profilePic}
-              onChange={(e) => {
-                setForm({ ...form, profilePic: e.target.value });
-              }}
-            />
-          </div>
+
           <div className="userNameDiv">
             <input
               className="userName"
