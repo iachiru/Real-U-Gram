@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Moquito from "../images/Moquito.jpg";
 import Post from "./Post";
 import { Link } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { database } from "../firebase/Firebase";
 
 export default function Posts() {
-  /*  const posts = [
+  /* const posts = [
     {
       id: "123",
       username: "Mocolin",
@@ -24,6 +23,7 @@ export default function Posts() {
   ]; */
 
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -32,6 +32,9 @@ export default function Posts() {
         setPosts(snapshot.docs);
       }
     );
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
@@ -42,10 +45,12 @@ export default function Posts() {
       {posts.map((post) => (
         <Post
           key={post.id}
-          username={post.username}
+          id={post.id}
+          username={post.data().username}
           profilePic={post.profilePic}
-          postPhoto={post.postPhoto}
-          caption={post.caption}
+          postPhoto={post.data().image}
+          caption={post.data().caption}
+          timestamp={post.data().timestamp}
         />
       ))}
     </div>
