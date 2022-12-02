@@ -1,9 +1,11 @@
-import React from "react";
-import Moquito from "../images/Moquito.jpg";
+import React, { useEffect, useState } from "react";
 import Post from "./Post";
+import { Link } from "react-router-dom";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { database } from "../firebase/Firebase";
 
 export default function Posts() {
-  const posts = [
+  /* const posts = [
     {
       id: "123",
       username: "Mocolin",
@@ -18,16 +20,37 @@ export default function Posts() {
       postPhoto: Moquito,
       caption: "Soy Moquito el más bonito",
     },
-  ];
+  ]; */
+
+  const [posts, setPosts] = useState([]);
+  console.log(posts);
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(collection(database, "posts"), orderBy("timestamp")),
+      (snapshot) => {
+        setPosts(snapshot.docs);
+      }
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <div>
+      <Link className="create_post" to="/post">
+        <button> Create Post</button>
+      </Link>
       {posts.map((post) => (
         <Post
           key={post.id}
-          username={post.username}
+          id={post.id}
+          username={post.data().username}
           profilePic={post.profilePic}
-          postPhoto={post.postPhoto}
-          caption={post.caption}
+          postPhoto={post.data().image}
+          caption={post.data().caption}
+          timestamp={post.data().timestamp}
         />
       ))}
     </div>

@@ -49,7 +49,7 @@ const ProfileProvider = ({ children, setPosts }) => {
 
   //Update profile
 
-  const editUserProfile = async ({ profile }) => {
+  const editUserProfile = async (profile) => {
     if (!profile.id) {
       throw new Error("Profile needs an id");
     }

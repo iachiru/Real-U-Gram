@@ -1,14 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useProfile } from "../context/ProfileContext";
 import { processFirebaseErrors } from "../firebase/errors";
+import ProfilePicture from "./ProfilePicture";
+import ProfilePhoto from "./ProfilePicture";
 
 const Users = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [editor, setEditor] = useState(false);
+  const imageRef = useRef(null);
+  const [userImage, setUserImage] = useState(null);
+  console.log(userImage);
 
   const {
     addProfile,
@@ -23,6 +28,7 @@ const Users = () => {
   const navigate = useNavigate();
 
   const emptyForm = {
+    profilePic: "",
     name: "",
     alias: "",
     city: "",
@@ -30,6 +36,39 @@ const Users = () => {
   };
 
   const [form, setForm] = useState(userProfile ?? emptyForm);
+
+  /*  const uploadProfilePic = async (e) => {
+    e.preventDefault();
+
+    const docRef = await addDoc(collection(database, "profiles"), {
+      userImage: profilePic,
+    });
+    //Path for image to be uploaded
+    const imagePath = ref(storage, `profiles/${docRef.id}/image`);
+
+    //Upload the image to that address
+    //then with snapshot declare the download URL
+
+    await uploadString(imagePath, userImage, `data_url`).then(
+      async (snapshot) => {
+        const downloadURL = await getDownloadURL(imagePath);
+        await updateDoc(doc(database, "posts", docRef.id), {
+          userImage: downloadURL,
+        });
+      }
+    );
+  };
+*/
+  /*  //Add image to state
+  const addImageToState = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.onload = (readerEvent) => {
+      setUserImage(readerEvent.target.result);
+    };
+  }; */
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,17 +85,19 @@ const Users = () => {
 
     try {
       setLoading(true);
+      console.log("editor:", editor);
       if (!editor) {
         await addProfile({ ...form, userId: user.uid });
-
-        if (editor) {
-          await editUserProfile({
-            ...form,
-            userId: user.uid,
-          });
-        }
       }
-      //await getUserProfile(user.uid);
+      if (editor) {
+        console.log(form);
+        await editUserProfile({
+          ...form,
+          userId: user.uid,
+        });
+      }
+
+      await getUserProfile(user.uid);
 
       setEditor(false);
       setLoading(false);
@@ -107,12 +148,20 @@ const Users = () => {
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
         <p>{userProfile.bio}</p>
+
         <button className="littleButton" onClick={openEditor}>
           edit
         </button>
         <button className="littleButton" onClick={deleteDocument}>
           delete
         </button>
+
+        <div className="profilePicture">
+          <ProfilePicture />
+        </div>
+        <button onClick={openEditor}>Edit</button>
+        <button onClick={deleteDocument}>Delete</button>
+
       </div>
     );
 
@@ -133,9 +182,13 @@ const Users = () => {
         </h1>
         <p></p>
       </div>
+      <div className="profilePicture">
+        <ProfilePicture />
+      </div>
       <div className="formProfileDiv">
         <form onSubmit={onSubmit}>
           {error && <div>{error}</div>}
+
           <div className="userNameDiv">
             <input
               className="userName"
