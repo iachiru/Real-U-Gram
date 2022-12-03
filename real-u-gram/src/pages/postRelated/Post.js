@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Post.css";
-import Bookmark from "../images/Bookmark.png";
-import Comment from "../images/Comment.png";
-import Like from "../images/Like.png";
-import Share from "../images/Share.png";
-import { useAuth } from "../context/authContext";
+import Bookmark from "../../images/Bookmark.png";
+import Comment from "../../images/Comment.png";
+import Like from "../../images/Like.png";
+import Share from "../../images/Share.png";
+import { useAuth } from "../../context/authContext";
 import {
   addDoc,
   collection,
@@ -13,7 +13,7 @@ import {
   query,
   serverTimestamp,
 } from "firebase/firestore";
-import { database } from "../firebase/Firebase";
+import { database } from "../../firebase/Firebase";
 import { useEffect } from "react";
 
 export default function Header({
@@ -80,21 +80,19 @@ export default function Header({
               <img src={Bookmark} alt="" />
             </div>
           </div>
-          <p>20,500 likes</p>
+          {/*  <p>20,500 likes</p> */}
         </div>
         {/* Caption */}
         <div className="post_caption">
           <p>{username}</p>
           <p>{caption}</p>
-          {/* View all comments */}
-          <p>View all 250 comments</p>
         </div>
 
         {/* Comments */}
         <div>
           {comments.map((comment) => (
             <div>
-              <div>
+              <div key={comment.id}>
                 <img src={comment.data().image} alt="profile img" />
                 <p>{comment.data().username}</p>
                 <p>{comment.data().comment}</p>

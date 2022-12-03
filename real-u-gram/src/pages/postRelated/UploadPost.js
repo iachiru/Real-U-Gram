@@ -9,8 +9,8 @@ import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import React, { useRef } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import { database, storage } from "../firebase/Firebase";
+import { useAuth } from "../../context/authContext";
+import { database, storage } from "../../firebase/Firebase";
 
 export default function UploadPost() {
   const [loading, setLoading] = useState(false);
