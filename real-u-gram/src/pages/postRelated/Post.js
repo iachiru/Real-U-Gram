@@ -51,7 +51,7 @@ export default function Header({
         ),
         (snapshot) => setComments(snapshot.docs)
       ),
-    [database, id]
+    [id]
   );
 
   return (
@@ -59,44 +59,41 @@ export default function Header({
       {/* Header */}
       <div className="post_header">
         <img src={profilePic} alt="profile" />
-        <p>{username}</p>
+        <div>{username}</div>
       </div>
       {/* Photo */}
       <div className="post_photo">
-        <img src={postPhoto} alt="" />
+        <img src={postPhoto} alt="chosen pic" />
       </div>
       <div>
         {/* Buttons */}
         <div className="post_footer">
           <div className="post_buttons">
             <div className="like_comm_share">
-              <img src={Like} alt="" />
+              <img src={Like} alt=" like icon" />
 
-              <img src={Comment} alt="" />
+              <img src={Comment} alt="comment icon" />
 
-              <img src={Share} alt="" />
+              <img src={Share} alt=" share icon" />
             </div>
             <div className="post_bookmark">
-              <img src={Bookmark} alt="" />
+              <img src={Bookmark} alt="bookmark icon" />
             </div>
           </div>
-          {/*  <p>20,500 likes</p> */}
         </div>
         {/* Caption */}
         <div className="post_caption">
-          <p>{username}</p>
-          <p>{caption}</p>
+          <div>{username}</div>
+          <div>{caption}</div>
         </div>
 
         {/* Comments */}
         <div>
           {comments.map((comment) => (
-            <div>
-              <div key={comment.id}>
-                <img src={comment.data().image} alt="profile img" />
-                <p>{comment.data().username}</p>
-                <p>{comment.data().comment}</p>
-              </div>
+            <div key={comment.id}>
+              <img src={comment.data().image} alt="profile img" />
+              <div>{comment.data().username}</div>
+              <div>{comment.data().comment}</div>
             </div>
           ))}
         </div>

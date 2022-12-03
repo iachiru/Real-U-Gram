@@ -2,7 +2,7 @@ import React from "react";
 import Posts from "../postRelated/Posts";
 import Stories from "../../storiesRelated/Stories";
 
-export default function Feed(profileUser) {
+export default function Feed() {
   return (
     <div>
       <section>

@@ -13,12 +13,12 @@ import { useAuth } from "../../context/authContext";
 import { database, storage } from "../../firebase/Firebase";
 
 export default function UploadPost() {
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState();
   const captionRef = useRef(null);
   const navigate = useNavigate();
   const imageRef = useRef(null);
-  const [image, setImage] = useState();
-  const { user } = useAuth();
 
   const uploadPost = async (e) => {
     setLoading(true);

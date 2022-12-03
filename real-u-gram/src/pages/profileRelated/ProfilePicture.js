@@ -30,7 +30,7 @@ export default function ProfilePicture() {
   const upload = async (file, user, setLoading) => {
     const fileRef = ref(storage, "profiles/images" + user.uid);
     setLoading(true);
-    const snapshot = await uploadBytes(fileRef, file);
+    await uploadBytes(fileRef, file);
     const profilePic = await getDownloadURL(fileRef);
 
     updateProfile(user, {
