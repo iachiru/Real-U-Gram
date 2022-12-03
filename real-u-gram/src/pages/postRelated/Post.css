@@ -77,3 +77,29 @@
   margin-bottom: 30px;
   margin-top: 10px;
 }
+
+.profilePic_comments img {
+  display: flex;
+  width: 100%;
+  border-radius: 50%;
+}
+.profilePic_comments {
+  display: flex;
+  width: 70px;
+  color: #5a6d53;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+}
+
+.profile_and_comment h1 {
+  font-size: 16px;
+}
+.profile_and_comment {
+  width: 100%;
+  font-size: 1em;
+}
+.comment_layout {
+  display: flex;
+}
