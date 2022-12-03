@@ -6,7 +6,7 @@ import { storage } from "../firebase/Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 export default function ProfilePicture() {
-  const currentUser = useAuth();
+  const { user } = useAuth();
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
   const [photoURL, setPhotoURL] = useState(
@@ -20,21 +20,20 @@ export default function ProfilePicture() {
   };
 
   const handleClick = () => {
-    upload(photo, currentUser, setLoading);
+    upload(photo, user, setLoading);
   };
 
   useEffect(() => {
-    if (currentUser?.photoURL) setPhotoURL(currentUser.photoURL);
-  }, [currentUser]);
+    if (user?.photoURL) setPhotoURL(user.photoURL);
+  }, [user]);
 
-  const upload = async (file, currentUser, setLoading) => {
-    const fileRef = ref(storage, "profiles/images" + currentUser.uid);
+  const upload = async (file, user, setLoading) => {
+    const fileRef = ref(storage, "profiles/images" + user.uid);
     setLoading(true);
     const snapshot = await uploadBytes(fileRef, file);
-    console.log(snapshot);
     const profilePic = await getDownloadURL(fileRef);
-    console.log(profilePic);
-    updateProfile(currentUser, {
+
+    updateProfile(user, {
       photoURL: profilePic,
     });
     setLoading(false);
