@@ -8,13 +8,10 @@ import { useAuth } from "../context/authContext";
 import {
   addDoc,
   collection,
-  deleteDoc,
-  doc,
   onSnapshot,
   orderBy,
   query,
   serverTimestamp,
-  setDoc,
 } from "firebase/firestore";
 import { database } from "../firebase/Firebase";
 import { useEffect } from "react";
