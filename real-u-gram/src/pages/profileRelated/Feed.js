@@ -1,8 +1,8 @@
 import React from "react";
-import Posts from "./Posts";
-import Stories from "./Stories";
+import Posts from "../postRelated/Posts";
+import Stories from "../../storiesRelated/Stories";
 
-export default function Feed() {
+export default function Feed(profileUser) {
   return (
     <div>
       <section>
@@ -10,10 +10,6 @@ export default function Feed() {
         <Stories />
         {/* Posts */}
         <Posts />
-      </section>
-      <section>
-        {/* User Stories */}
-        {/* Posts */}
       </section>
     </div>
   );

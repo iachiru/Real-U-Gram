@@ -2,26 +2,9 @@ import React, { useEffect, useState } from "react";
 import Post from "./Post";
 import { Link } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { database } from "../firebase/Firebase";
+import { database } from "../../firebase/Firebase";
 
 export default function Posts() {
-  /* const posts = [
-    {
-      id: "123",
-      username: "Mocolin",
-      profilePic: Moquito,
-      postPhoto: Moquito,
-      caption: "Soy Moquito el bonito",
-    },
-    {
-      id: "234",
-      username: "Trolo Lolo",
-      profilePic: Moquito,
-      postPhoto: Moquito,
-      caption: "Soy Moquito el más bonito",
-    },
-  ]; */
-
   const [posts, setPosts] = useState([]);
   console.log(posts);
 

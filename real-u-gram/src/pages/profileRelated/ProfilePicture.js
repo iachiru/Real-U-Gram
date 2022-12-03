@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useAuth } from "../context/authContext";
+import { useAuth } from "../../context/authContext";
 import { updateProfile } from "firebase/auth";
-import { storage } from "../firebase/Firebase";
+import { storage } from "../../firebase/Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 export default function ProfilePicture() {

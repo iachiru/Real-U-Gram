@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App";
 import AuthProvider from "./context/authContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import LogIn from "./pages/LogIn";
+import SignUp from "./pages/profileRelated/SignUp";
+import LogIn from "./pages/profileRelated/LogIn";
 import ProfileProvider from "./context/ProfileContext";
-import Users from "./pages/Users";
-import UploadPost from "./pages/UploadPost";
+import Users from "./pages/profileRelated/Users";
+import UploadPost from "./pages/postRelated/UploadPost";
 
 const router = createBrowserRouter([
   {

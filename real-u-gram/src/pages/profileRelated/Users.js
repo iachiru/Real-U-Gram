@@ -2,10 +2,10 @@ import { updateProfile } from "firebase/auth";
 import { useEffect } from "react";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import { useProfile } from "../context/ProfileContext";
-import { processFirebaseErrors } from "../firebase/errors";
-import ProfilePicture from "./ProfilePicture";
+import { useAuth } from "../../context/authContext";
+import { useProfile } from "../../context/ProfileContext";
+import { processFirebaseErrors } from "../../firebase/errors";
+import ProfilePicture from "../profileRelated/ProfilePicture";
 
 const Users = () => {
   const [loading, setLoading] = useState(false);

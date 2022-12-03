@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { useAuth } from "./context/authContext";
-import Feed from "./pages/Feed";
+import Feed from "./pages/profileRelated/Feed";
 
 function App() {
   const { user, logOut } = useAuth();
