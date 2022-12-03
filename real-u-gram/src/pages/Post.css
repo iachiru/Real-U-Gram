@@ -66,3 +66,14 @@
 .buttonsFeed {
   display: flex;
 }
+
+.logoRUGminiFeed {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}

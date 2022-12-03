@@ -14,7 +14,7 @@ function App() {
           <h2>Hello {user.email}</h2>
           <div className="logoDiv">
             <img
-              className="logoRUGmini"
+              className="logoRUGminiFeed"
               src="logoRUG.png"
               alt="logo real-u-gram"
             />

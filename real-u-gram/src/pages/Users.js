@@ -103,6 +103,25 @@ const Users = () => {
   if (userProfile && !editor)
     return (
       <div>
+        <div className="logoAndhomeDiv">
+          <Link className="home" to="/">
+            go back
+          </Link>
+          <img
+            className="logoRUGmini"
+            src="logoRUG.png"
+            alt="logo real-u-gram"
+          />
+        </div>
+        <div className="welcome">
+          <p></p>
+          <h1 className="profile">
+            <span>yo</span>
+            <span className="title-word title-word-u">u</span>
+            <span>r profile</span>
+          </h1>
+          <p></p>
+        </div>
         <h1>{userProfile.name}</h1>
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
