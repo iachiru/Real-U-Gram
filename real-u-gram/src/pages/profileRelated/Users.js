@@ -51,7 +51,6 @@ const Users = () => {
 
     try {
       setLoading(true);
-      console.log("editor:", editor);
       if (!editor) {
         await addProfile({ ...form, userId: user.uid });
       }
@@ -74,6 +73,7 @@ const Users = () => {
     }
   };
 
+  // if getUserProfile is added as dependency it loops forever
   useEffect(() => {
     if (user) getUserProfile(user.uid);
   }, [user]);
@@ -108,20 +108,26 @@ const Users = () => {
 
   if (userProfile && !editor)
     return (
-      <div>
-        <img className="profilePicture" src={user.photoURL} alt="profile" />
-        <h1>{userProfile.name}</h1>
-        <p>{userProfile.alias}</p>
-        <p>{userProfile.city}</p>
-        <p>{userProfile.bio}</p>
+      <>
+        <Link className="home" to="/">
+          go back
+        </Link>
 
-        <button className="littleButton" onClick={openEditor}>
-          edit
-        </button>
-        <button className="littleButton" onClick={deleteDocument}>
-          delete
-        </button>
-      </div>
+        <div>
+          <img className="profilePicture" src={user.photoURL} alt="profile" />
+          <h1>{userProfile.name}</h1>
+          <p>{userProfile.alias}</p>
+          <p>{userProfile.city}</p>
+          <p>{userProfile.bio}</p>
+
+          <button className="littleButton" onClick={openEditor}>
+            edit
+          </button>
+          <button className="littleButton" onClick={deleteDocument}>
+            delete
+          </button>
+        </div>
+      </>
     );
 
   return (
@@ -188,7 +194,7 @@ const Users = () => {
             <input
               className="bio"
               placeholder="biography"
-              type="text"
+              type="textarea"
               value={form.bio}
               onChange={(e) => {
                 setForm({ ...form, bio: e.target.value });

@@ -58,15 +58,6 @@ function App() {
           sign up
         </button>
       </div>
-      {/*  <div className="timeline">
-        {posts.map((post) => (
-          <Post
-            username={post.username}
-            caption={post.caption}
-            imageUrl={post.image}
-          />
-        ))}
-      </div> */}
       <div className="rightsApp">
         <p>© FBW team - all rights reserved 2022 </p>
       </div>

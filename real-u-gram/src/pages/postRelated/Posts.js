@@ -6,7 +6,6 @@ import { database } from "../../firebase/Firebase";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
-  console.log(posts);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
