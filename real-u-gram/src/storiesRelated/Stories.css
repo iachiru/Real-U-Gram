@@ -1,9 +1,10 @@
 .stories {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   text-align: center;
   justify-items: center;
   align-items: center;
+  overflow-x: auto;
 }
 
 .stories img {
