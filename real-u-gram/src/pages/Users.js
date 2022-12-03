@@ -109,6 +109,7 @@ const Users = () => {
   if (userProfile && !editor)
     return (
       <div>
+        <img className="profilePicture" src={user.photoURL} alt="profile" />
         <h1>{userProfile.name}</h1>
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
@@ -120,12 +121,6 @@ const Users = () => {
         <button className="littleButton" onClick={deleteDocument}>
           delete
         </button>
-
-        <div className="profilePicture">
-          <ProfilePicture />
-        </div>
-        <button onClick={openEditor}>Edit</button>
-        <button onClick={deleteDocument}>Delete</button>
       </div>
     );
 
@@ -208,6 +203,7 @@ const Users = () => {
                 onClick={() => {
                   updateProfile(user, {
                     displayName: form.alias,
+                    photoURL: user.photoURL,
                   });
                 }}
                 className="littleButton"

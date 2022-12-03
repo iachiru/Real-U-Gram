@@ -11,7 +11,7 @@ function App() {
     return (
       <div>
         <div className="hello">
-          <h2>Hello {user.email}</h2>
+          <h2>Hello {user.displayName}</h2>
           <div className="logoDiv">
             <img
               className="logoRUGmini"
@@ -26,7 +26,8 @@ function App() {
           </button>
           <button
             className="profileButton"
-            onClick={() => navigate("/profile")}>
+            onClick={() => navigate("/profile")}
+          >
             profile
           </button>
         </div>
