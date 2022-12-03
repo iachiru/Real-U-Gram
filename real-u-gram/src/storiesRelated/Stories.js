@@ -17,13 +17,11 @@ export default function Stories() {
     );
   }, []);
 
-  console.log(stories);
-
   return (
     <div className="stories">
       {stories.map((profile) => (
         <Story
-          key={profile.userID}
+          key={profile.username}
           username={profile.username}
           avatar={profile.avatar}
         />
