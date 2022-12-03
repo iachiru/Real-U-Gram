@@ -108,26 +108,18 @@ const Users = () => {
 
   if (userProfile && !editor)
     return (
-      <>
-        <Link className="home" to="/">
-          go back
-        </Link>
-
-        <div>
-          <img className="profilePicture" src={user.photoURL} alt="profile" />
-          <h1>{userProfile.name}</h1>
-          <p>{userProfile.alias}</p>
-          <p>{userProfile.city}</p>
-          <p>{userProfile.bio}</p>
-
-          <button className="littleButton" onClick={openEditor}>
-            edit
-          </button>
-          <button className="littleButton" onClick={deleteDocument}>
-            delete
-          </button>
-        </div>
-      </>
+      <div>
+        <h1>{userProfile.name}</h1>
+        <p>{userProfile.alias}</p>
+        <p>{userProfile.city}</p>
+        <p>{userProfile.bio}</p>
+        <button className="littleButton" onClick={openEditor}>
+          edit
+        </button>
+        <button className="littleButton" onClick={deleteDocument}>
+          delete
+        </button>
+      </div>
     );
 
   return (

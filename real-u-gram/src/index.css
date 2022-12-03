@@ -11,6 +11,24 @@ body,
   src: url(../fonts/Fredoka.ttf);
 }
 
+code {
+  font-family: "Fredoka";
+}
+
+.title {
+  font-size: 40px;
+}
+.hello,
+.welcome {
+  margin-top: 30px;
+  display: grid;
+  background: #ffffff;
+  width: 100%;
+  font-family: "Fredoka";
+  color: #5a6d53;
+  text-align: center;
+}
+
 .title-word-u {
   animation: color-animation 5s linear infinite;
   --color-1: #a5d193;
@@ -97,24 +115,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #a5d1938f;
-}
-
-code {
-  font-family: "Fredoka";
-}
-
-.title {
-  font-size: 40px;
-}
-.hello,
-.welcome {
-  margin-top: 30px;
-  display: grid;
-  background: #ffffff;
-  width: 100%;
-  font-family: "Fredoka";
-  color: #5a6d53;
-  text-align: center;
 }
 
 .loginDiv {
@@ -229,6 +229,7 @@ a:active {
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
 }
 
 .littleEditDiv,
@@ -241,6 +242,7 @@ a:active {
   color: #5a6d53;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .formProfileDiv,
