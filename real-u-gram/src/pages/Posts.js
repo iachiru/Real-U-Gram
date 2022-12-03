@@ -27,7 +27,7 @@ export default function Posts() {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      query(collection(database, "posts"), orderBy("timestamp")),
+      query(collection(database, "posts"), orderBy("timestamp", "desc")),
       (snapshot) => {
         setPosts(snapshot.docs);
       }

@@ -1,20 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import Bookmark from "../images/Bookmark.png";
 import Comment from "../images/Comment.png";
 import Like from "../images/Like.png";
 import Share from "../images/Share.png";
 import { useAuth } from "../context/authContext";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  setDoc,
+} from "firebase/firestore";
+import { database } from "../firebase/Firebase";
+import { useEffect } from "react";
 
-export default function Header({ username, profilePic, postPhoto, caption }) {
+export default function Header({
+  username,
+  profilePic,
+  id,
+  postPhoto,
+  caption,
+}) {
   const { user } = useAuth();
-  const comments = [
-    {
-      username: "Mocolin",
-      comment: "Hello from the comments",
-    },
-    { username: "Trolo Lolo", comment: "Bye from the comments" },
-  ];
+  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
+
+  //send comment to database
+
+  const sendComment = async (e) => {
+    e.preventDefault();
+    const commentToSend = comment;
+    setComment("");
+    await addDoc(collection(database, "posts", id, "comments"), {
+      comment: commentToSend,
+      username: username,
+      image: user.photoURL,
+      timestamp: serverTimestamp(),
+    });
+  };
+
+  //When Comments update in db update them in the app as well
+  useEffect(
+    () =>
+      onSnapshot(
+        query(
+          collection(database, "posts", id, "comments"),
+          orderBy("timestamp", "desc")
+        ),
+        (snapshot) => setComments(snapshot.docs)
+      ),
+    [database, id]
+  );
 
   return (
     <div className="post_wrapper">
@@ -57,16 +98,22 @@ export default function Header({ username, profilePic, postPhoto, caption }) {
           {comments.map((comment) => (
             <div>
               <div>
-                <p>{comment.username}</p>
-                <p>{comment.comment}</p>
+                <img src={comment.data().image} alt="profile img" />
+                <p>{comment.data().username}</p>
+                <p>{comment.data().comment}</p>
               </div>
             </div>
           ))}
         </div>
         {/* Input */}
         <div className="post_comments">
-          <input type="text" placeholder="add a comment" />
-          <button className="postButton" type="submit">
+          <input
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            type="text"
+            placeholder="add a comment"
+          />
+          <button className="postButton" type="submit" onClick={sendComment}>
             Post
           </button>
         </div>
