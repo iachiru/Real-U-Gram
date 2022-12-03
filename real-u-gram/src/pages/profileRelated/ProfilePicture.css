@@ -1,0 +1,28 @@
+.profile_picture img {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+
+  flex-direction: center;
+}
+
+.wrapper_profile_noEditor {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile_picture_editor {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+/* .profile_picture_editor input {
+} */

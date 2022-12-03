@@ -6,6 +6,7 @@ import { useAuth } from "../../context/authContext";
 import { useProfile } from "../../context/ProfileContext";
 import { processFirebaseErrors } from "../../firebase/errors";
 import ProfilePicture from "../profileRelated/ProfilePicture";
+import "./ProfilePicture.css";
 
 const Users = () => {
   const [loading, setLoading] = useState(false);
@@ -106,13 +107,15 @@ const Users = () => {
 
   if (userProfile && !editor)
     return (
-      <div>
+      <div className="wrapper_profile_noEditor">
         <div>
           <Link className="home" to="/">
             go back
           </Link>
         </div>
-        <img src={user.photoURL} alt="user profile" />
+        <div className="profile_picture">
+          <img src={user.photoURL} alt="user profile" />
+        </div>
         <h1>{userProfile.name}</h1>
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>

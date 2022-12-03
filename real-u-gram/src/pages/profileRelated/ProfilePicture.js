@@ -4,6 +4,7 @@ import { useAuth } from "../../context/authContext";
 import { updateProfile } from "firebase/auth";
 import { storage } from "../../firebase/Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import "./ProfilePicture.css";
 
 export default function ProfilePicture() {
   const { user } = useAuth();
@@ -41,12 +42,16 @@ export default function ProfilePicture() {
   };
 
   return (
-    <div>
-      <input type="file" onChange={handleChange} />
+    <div className="profile_picture_editor">
+      <div className="custom_upload">
+        <input type="file" onChange={handleChange} />
+      </div>
       <button disabled={loading || !photo} onClick={handleClick}>
         Upload Picture
       </button>
-      <img src={photoURL} alt="Avatar" />
+      <div className="profile_picture">
+        <img src={photoURL} alt="Avatar" />
+      </div>
     </div>
   );
 }
