@@ -4,8 +4,10 @@ import Bookmark from "../images/Bookmark.png";
 import Comment from "../images/Comment.png";
 import Like from "../images/Like.png";
 import Share from "../images/Share.png";
+import { useAuth } from "../context/authContext";
 
 export default function Header({ username, profilePic, postPhoto, caption }) {
+  const { user } = useAuth();
   const comments = [
     {
       username: "Mocolin",

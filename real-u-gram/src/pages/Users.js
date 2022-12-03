@@ -1,19 +1,16 @@
-import { useEffect, useRef } from "react";
+import { updateProfile } from "firebase/auth";
+import { useEffect } from "react";
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useProfile } from "../context/ProfileContext";
 import { processFirebaseErrors } from "../firebase/errors";
 import ProfilePicture from "./ProfilePicture";
-import ProfilePhoto from "./ProfilePicture";
 
 const Users = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [editor, setEditor] = useState(false);
-  const imageRef = useRef(null);
-  const [userImage, setUserImage] = useState(null);
-  console.log(userImage);
 
   const {
     addProfile,
@@ -26,6 +23,8 @@ const Users = () => {
 
   const { user, userLoading } = useAuth();
   const navigate = useNavigate();
+  console.log(userProfile);
+  console.log(user);
 
   const emptyForm = {
     profilePic: "",
@@ -36,39 +35,6 @@ const Users = () => {
   };
 
   const [form, setForm] = useState(userProfile ?? emptyForm);
-
-  /*  const uploadProfilePic = async (e) => {
-    e.preventDefault();
-
-    const docRef = await addDoc(collection(database, "profiles"), {
-      userImage: profilePic,
-    });
-    //Path for image to be uploaded
-    const imagePath = ref(storage, `profiles/${docRef.id}/image`);
-
-    //Upload the image to that address
-    //then with snapshot declare the download URL
-
-    await uploadString(imagePath, userImage, `data_url`).then(
-      async (snapshot) => {
-        const downloadURL = await getDownloadURL(imagePath);
-        await updateDoc(doc(database, "posts", docRef.id), {
-          userImage: downloadURL,
-        });
-      }
-    );
-  };
-*/
-  /*  //Add image to state
-  const addImageToState = (e) => {
-    const reader = new FileReader();
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]);
-    }
-    reader.onload = (readerEvent) => {
-      setUserImage(readerEvent.target.result);
-    };
-  }; */
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -90,7 +56,6 @@ const Users = () => {
         await addProfile({ ...form, userId: user.uid });
       }
       if (editor) {
-        console.log(form);
         await editUserProfile({
           ...form,
           userId: user.uid,
@@ -161,7 +126,6 @@ const Users = () => {
         </div>
         <button onClick={openEditor}>Edit</button>
         <button onClick={deleteDocument}>Delete</button>
-
       </div>
     );
 
@@ -207,6 +171,9 @@ const Users = () => {
               type="text"
               value={form.alias}
               onChange={(e) => {
+                updateProfile(user, {
+                  displayName: form.alias,
+                });
                 setForm({ ...form, alias: e.target.value });
               }}
             />
@@ -237,7 +204,16 @@ const Users = () => {
             {!editor ? (
               <input className="littleButton" type="submit" value="submit" />
             ) : (
-              <input className="littleButton" type="submit" value="edit" />
+              <input
+                onClick={() => {
+                  updateProfile(user, {
+                    displayName: form.alias,
+                  });
+                }}
+                className="littleButton"
+                type="submit"
+                value="edit"
+              />
             )}
           </div>
         </form>

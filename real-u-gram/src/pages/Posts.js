@@ -46,8 +46,9 @@ export default function Posts() {
         <Post
           key={post.id}
           id={post.id}
+          email={post.data().userEmail}
           username={post.data().username}
-          profilePic={post.profilePic}
+          profilePic={post.data().profilePic}
           postPhoto={post.data().image}
           caption={post.data().caption}
           timestamp={post.data().timestamp}
