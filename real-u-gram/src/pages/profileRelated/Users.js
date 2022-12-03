@@ -23,8 +23,6 @@ const Users = () => {
 
   const { user, userLoading } = useAuth();
   const navigate = useNavigate();
-  console.log(userProfile);
-  console.log(user);
 
   const emptyForm = {
     profilePic: "",
@@ -109,6 +107,12 @@ const Users = () => {
   if (userProfile && !editor)
     return (
       <div>
+        <div>
+          <Link className="home" to="/">
+            go back
+          </Link>
+        </div>
+        <img src={user.photoURL} alt="user profile" />
         <h1>{userProfile.name}</h1>
         <p>{userProfile.alias}</p>
         <p>{userProfile.city}</p>
