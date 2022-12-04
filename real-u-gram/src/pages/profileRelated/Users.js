@@ -118,7 +118,7 @@ const Users = () => {
             <img src={user.photoURL} alt="user profile" />
           </div>
           <h1>{userProfile.name}</h1>
-          <div div className="user_p">
+          <div className="user_p">
             <p>{userProfile.alias}</p>
             <p>{userProfile.city}</p>
             <p>{userProfile.bio}</p>

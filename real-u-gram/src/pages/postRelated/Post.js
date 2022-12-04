@@ -35,7 +35,7 @@ export default function Header({
     setComment("");
     await addDoc(collection(database, "posts", id, "comments"), {
       comment: commentToSend,
-      username: username,
+      userId: user.displayName,
       image: user.photoURL,
       timestamp: serverTimestamp(),
     });
@@ -85,7 +85,7 @@ export default function Header({
         </div>
         {/* Caption */}
         <div className="post_caption">
-          <div>{username}</div>
+          {/* <div>{username}</div> */}
           <div>{caption}</div>
         </div>
 
@@ -99,7 +99,7 @@ export default function Header({
               <div className="profile_and_comment">
                 {/*it adds the username of the person that
                  made the post instead of the commenter needs fix*/}
-                <h1>{comment.data().username}</h1>
+                <h1>{comment.data().userId}</h1>
                 <div>{comment.data().comment}</div>
               </div>
             </div>
