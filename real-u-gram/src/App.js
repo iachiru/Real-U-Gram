@@ -10,6 +10,16 @@ function App() {
   if (user)
     return (
       <div>
+        <div className="buttonsFeed">
+          <button className="logoutButton" onClick={logOut}>
+            log out
+          </button>
+          <button
+            className="profileButton"
+            onClick={() => navigate("/profile")}>
+            profile
+          </button>
+        </div>
         <div className="hello">
           <h2>Hello {user.displayName}</h2>
           <div className="logoDiv">
@@ -20,18 +30,6 @@ function App() {
             />
           </div>
         </div>
-        <div className="buttonsFeed">
-          <button className="logoutButton" onClick={logOut}>
-            log out
-          </button>
-          <button
-            className="profileButton"
-            onClick={() => navigate("/profile")}
-          >
-            profile
-          </button>
-        </div>
-
         <Feed />
       </div>
     );
