@@ -35,7 +35,7 @@ export default function Header({
     setComment("");
     await addDoc(collection(database, "posts", id, "comments"), {
       comment: commentToSend,
-      username: username,
+      userId: user.displayName,
       image: user.photoURL,
       timestamp: serverTimestamp(),
     });
@@ -58,8 +58,10 @@ export default function Header({
     <div className="post_wrapper">
       {/* Header */}
       <div className="post_header">
-        <img src={profilePic} alt="profile" />
-        <div>{username}</div>
+        <div className="profilePic_post">
+          <img src={profilePic} alt="profile" />
+        </div>
+        <div className="userPost">{username}</div>
       </div>
       {/* Photo */}
       <div className="post_photo">
@@ -83,17 +85,23 @@ export default function Header({
         </div>
         {/* Caption */}
         <div className="post_caption">
-          <div>{username}</div>
+          {/* <div>{username}</div> */}
           <div>{caption}</div>
         </div>
 
         {/* Comments */}
         <div>
           {comments.map((comment) => (
-            <div key={comment.id}>
-              <img src={comment.data().image} alt="profile img" />
-              <div>{comment.data().username}</div>
-              <div>{comment.data().comment}</div>
+            <div key={comment.id} className="comment_layout">
+              <div className="profilePic_comments">
+                <img src={comment.data().image} alt="profile img" />
+              </div>
+              <div className="profile_and_comment">
+                {/*it adds the username of the person that
+                 made the post instead of the commenter needs fix*/}
+                <h1>{comment.data().userId}</h1>
+                <div>{comment.data().comment}</div>
+              </div>
             </div>
           ))}
         </div>

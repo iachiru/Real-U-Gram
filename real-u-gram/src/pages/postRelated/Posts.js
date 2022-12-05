@@ -22,7 +22,7 @@ export default function Posts() {
   return (
     <div>
       <Link className="create_post" to="/post">
-        <button> Create Post</button>
+        <button className="addPostButton"> Create Post</button>
       </Link>
       {posts.map((post) => (
         <Post
