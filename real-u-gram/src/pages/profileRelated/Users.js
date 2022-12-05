@@ -131,12 +131,7 @@ const Users = () => {
   return (
     <>
       <Header />
-      <div className="logoAndhomeDiv">
-        <Link className="home" to="/">
-          go back
-        </Link>
-        <img className="logoRUGmini" src="logoRUG.png" alt="logo real-u-gram" />
-      </div>
+      
       <div className="welcome">
         <p></p>
         <h1 className="profile">

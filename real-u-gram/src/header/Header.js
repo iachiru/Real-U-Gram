@@ -35,7 +35,7 @@ const Header = () => {
                         <li>< CiHeart size={28}/></li>
                         <li>< CiUser size={28} onClick={() => navigate("/profile")} /></li>
                         <li>< CiSettings size={28}/></li>
-                        <li>< CiSquareChevLeft size={28}/></li>
+                        <li>< CiSquareChevLeft size={28} onClick={() => navigate(-1)} /></li>
                         <li>< CiPower size={28} onClick={logOut} /></li>
                     </ul>
                 </div>
