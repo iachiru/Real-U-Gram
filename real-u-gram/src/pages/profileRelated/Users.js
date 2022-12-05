@@ -6,6 +6,7 @@ import { useAuth } from "../../context/authContext";
 import { useProfile } from "../../context/ProfileContext";
 import { processFirebaseErrors } from "../../firebase/errors";
 import ProfilePicture from "../profileRelated/ProfilePicture";
+import Header from "../../header/Header.js"
 
 const Users = () => {
   const [loading, setLoading] = useState(false);
@@ -107,6 +108,7 @@ const Users = () => {
   if (userProfile && !editor)
     return (
       <div>
+        <Header />
         <div>
           <Link className="home" to="/">
             go back
@@ -128,6 +130,7 @@ const Users = () => {
 
   return (
     <>
+      <Header />
       <div className="logoAndhomeDiv">
         <Link className="home" to="/">
           go back

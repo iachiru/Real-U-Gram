@@ -4,35 +4,13 @@ import { useAuth } from "./context/authContext";
 import Feed from "./pages/profileRelated/Feed";
 
 function App() {
-  const { user, logOut } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   if (user)
     return (
       <div>
-        <div className="hello">
-          <h2>Hello {user.displayName}</h2>
-          <div className="logoDiv">
-            <img
-              className="logoRUGminiFeed"
-              src="logoRUG.png"
-              alt="logo real-u-gram"
-            />
-          </div>
-        </div>
-        <div className="buttonsFeed">
-          <button className="logoutButton" onClick={logOut}>
-            log out
-          </button>
-          <button
-            className="profileButton"
-            onClick={() => navigate("/profile")}
-          >
-            profile
-          </button>
-        </div>
-
-        <Feed />
+         <Feed />
       </div>
     );
   return (

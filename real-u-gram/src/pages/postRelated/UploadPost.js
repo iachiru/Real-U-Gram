@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { database, storage } from "../../firebase/Firebase";
+import Header from "../../header/Header.js";
 
 export default function UploadPost() {
   const { user } = useAuth();
@@ -60,20 +61,23 @@ export default function UploadPost() {
 
   return (
     <div>
-      <form onSubmit={uploadPost}>
-        <input type="textarea" placeholder="Caption" ref={captionRef} />
-        <input
-          type="file"
-          placeholder="Choose an image"
-          ref={imageRef}
-          onChange={addImageToState}
-        />
-        <div>
-          <button onClick={() => imageRef.current.click}>
-            {loading ? "Adding Post" : "Add Post"}
-          </button>
-        </div>
-      </form>
+      <Header />
+      <div>
+        <form onSubmit={uploadPost}>
+          <input type="textarea" placeholder="Caption" ref={captionRef} />
+          <input
+            type="file"
+            placeholder="Choose an image"
+            ref={imageRef}
+            onChange={addImageToState}
+          />
+          <div>
+            <button onClick={() => imageRef.current.click}>
+              {loading ? "Adding Post" : "Add Post"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
