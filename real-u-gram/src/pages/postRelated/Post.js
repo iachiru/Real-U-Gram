@@ -61,7 +61,7 @@ export default function Header({
         <div className="profilePic_post">
           <img src={profilePic} alt="profile" />
         </div>
-        <div>{username}</div>
+        <div className="userPost">{username}</div>
       </div>
       {/* Photo */}
       <div className="post_photo">
