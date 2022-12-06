@@ -11,7 +11,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { database, storage } from "../../firebase/Firebase";
-import Header from "../../header/Header.js";
 
 export default function UploadPost() {
   const { user } = useAuth();
@@ -61,13 +60,6 @@ export default function UploadPost() {
 
   return (
     <div>
-
-      <Header />
-      <div>
-        <form onSubmit={uploadPost}>
-          <input type="textarea" placeholder="Caption" ref={captionRef} />
-          <input
-
       <button className="addPostButton" onClick={() => navigate(-1)}>
         go back to feed
       </button>
@@ -94,20 +86,11 @@ export default function UploadPost() {
         <div className="choosePicDiv<">
           <input
             className="choosePic"
-
             type="file"
             placeholder="Choose an image"
             ref={imageRef}
             onChange={addImageToState}
           />
-          <div>
-            <button onClick={() => imageRef.current.click}>
-              {loading ? "Adding Post" : "Add Post"}
-            </button>
-          </div>
-        </form>
-      </div>
-
         </div>
         <div className="addPostButtonDiv">
           <button
@@ -117,7 +100,6 @@ export default function UploadPost() {
           </button>
         </div>
       </form>
-
     </div>
   );
 }
