@@ -3,7 +3,6 @@ import { faker } from "@faker-js/faker";
 import { useEffect } from "react";
 import Story from "./Story";
 import "./Stories.css";
-import Header from "../header/Header.js";
 
 export default function Stories() {
   const [stories, setStories] = useState([]);
@@ -19,19 +18,14 @@ export default function Stories() {
   }, []);
 
   return (
-    <div>
-      <div>
-      <Header />
-      </div>
-      <div className="stories">
-        {stories.map((profile) => (
-          <Story
-            key={profile.username}
-            //username={profile.username}
-            avatar={profile.avatar}
-          />
-        ))}
-      </div>
+    <div className="stories">
+      {stories.map((profile) => (
+        <Story
+          key={profile.username}
+          //username={profile.username}
+          avatar={profile.avatar}
+        />
+      ))}
     </div>
   );
 }

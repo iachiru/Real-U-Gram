@@ -6,11 +6,7 @@ import { useAuth } from "../../context/authContext";
 import { useProfile } from "../../context/ProfileContext";
 import { processFirebaseErrors } from "../../firebase/errors";
 import ProfilePicture from "../profileRelated/ProfilePicture";
-
-import Header from "../../header/Header.js"
-
 import "./ProfilePicture.css";
-
 
 const Users = () => {
   const [loading, setLoading] = useState(false);
@@ -111,14 +107,8 @@ const Users = () => {
 
   if (userProfile && !editor)
     return (
-
-      <div>
-        <Header />
-        <div>
-
       <>
         <div className="go_home">
-
           <Link className="home" to="/">
             go back
           </Link>
@@ -145,8 +135,12 @@ const Users = () => {
 
   return (
     <>
-      <Header />
-      
+      <div className="logoAndhomeDiv">
+        <Link className="home" to="/">
+          go back
+        </Link>
+        <img className="logoRUGmini" src="logoRUG.png" alt="logo real-u-gram" />
+      </div>
       <div className="welcome">
         <p></p>
         <h1 className="profile">
