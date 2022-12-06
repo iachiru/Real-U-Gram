@@ -4,12 +4,14 @@ import { useAuth } from "./context/authContext";
 import Feed from "./pages/profileRelated/Feed";
 
 function App() {
-  const { user, logOut } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   if (user)
     return (
       <div>
+
+
         <div className="buttonsFeed">
           <button className="logoutButton" onClick={logOut}>
             log out
@@ -31,6 +33,7 @@ function App() {
           </div>
         </div>
         <Feed />
+
       </div>
     );
   return (
