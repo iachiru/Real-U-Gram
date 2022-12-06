@@ -10,7 +10,30 @@ function App() {
   if (user)
     return (
       <div>
-         <Feed />
+
+
+        <div className="buttonsFeed">
+          <button className="logoutButton" onClick={logOut}>
+            log out
+          </button>
+          <button
+            className="profileButton"
+            onClick={() => navigate("/profile")}>
+            profile
+          </button>
+        </div>
+        <div className="hello">
+          <h2>Hello {user.displayName}</h2>
+          <div className="logoDiv">
+            <img
+              className="logoRUGminiFeed"
+              src="logoRUG.png"
+              alt="logo real-u-gram"
+            />
+          </div>
+        </div>
+        <Feed />
+
       </div>
     );
   return (

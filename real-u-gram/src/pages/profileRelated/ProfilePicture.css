@@ -1,0 +1,39 @@
+.profile_picture img {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+
+  flex-direction: center;
+}
+
+.wrapper_profile_noEditor {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.user_p {
+  font-family: "Fredoka";
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5a6d53;
+}
+
+.profile_picture_editor {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.go_home {
+  display: flex;
+  flex-direction: row;
+}

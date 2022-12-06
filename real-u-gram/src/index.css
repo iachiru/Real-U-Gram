@@ -172,7 +172,6 @@ body {
 .logoutButton:hover,
 .profileButton:hover {
   font-weight: bold;
-  font-family: "Fredoka";
 }
 
 .home {
@@ -211,6 +210,7 @@ a:active {
   color: #ffffff;
   font-family: "Fredoka";
 }
+
 .littleButton,
 .littleLogin,
 .littleSignup,

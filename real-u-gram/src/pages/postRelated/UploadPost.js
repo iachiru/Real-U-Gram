@@ -61,11 +61,40 @@ export default function UploadPost() {
 
   return (
     <div>
+
       <Header />
       <div>
         <form onSubmit={uploadPost}>
           <input type="textarea" placeholder="Caption" ref={captionRef} />
           <input
+
+      <button className="addPostButton" onClick={() => navigate(-1)}>
+        go back to feed
+      </button>
+      <div className="logoMiniCenter">
+        <img className="logoRUGmini" src="logoRUG.png" alt="logo real-u-gram" />
+      </div>
+      <div className="welcome">
+        <h1 className="title">
+          <span className="title-word title-word-u">u</span>
+          <span>pload yo</span>
+          <span className="title-word title-word-u">u</span>
+          <span>r new post</span>
+        </h1>
+      </div>
+      <form onSubmit={uploadPost}>
+        <div className="captionAreaDiv">
+          <input
+            className="captionArea"
+            type="textarea"
+            placeholder="write a caption here"
+            ref={captionRef}
+          />
+        </div>
+        <div className="choosePicDiv<">
+          <input
+            className="choosePic"
+
             type="file"
             placeholder="Choose an image"
             ref={imageRef}
@@ -78,6 +107,17 @@ export default function UploadPost() {
           </div>
         </form>
       </div>
+
+        </div>
+        <div className="addPostButtonDiv">
+          <button
+            className="addPostButton"
+            onClick={() => imageRef.current.click}>
+            {loading ? "Adding Post" : "add post"}
+          </button>
+        </div>
+      </form>
+
     </div>
   );
 }

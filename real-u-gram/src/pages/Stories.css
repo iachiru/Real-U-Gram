@@ -1,0 +1,40 @@
+.stories {
+  display: flex;
+  gap: 30px;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.stories img {
+  border-radius: 50pt;
+  border: 2pt solid #5a6d53;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.storyName {
+  font-family: "Fredoka";
+  font-size: 10px;
+}
+
+.storyPic {
+  min-width: 20px;
+  max-width: 50px;
+  display: flex;
+}
+
+.storyDiv {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-self: center;
+  margin: 30px;
+  width: 50%;
+  margin: 0 auto 10px auto;
+}
