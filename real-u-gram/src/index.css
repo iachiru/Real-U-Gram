@@ -337,3 +337,12 @@ a:active {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.user_p {
+  background-color: #ffffff;
+  width: 80%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

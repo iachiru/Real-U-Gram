@@ -119,16 +119,28 @@ const Users = () => {
           </div>
           <h1>{userProfile.name}</h1>
           <div className="user_p">
-            <p>{userProfile.alias}</p>
-            <p>{userProfile.city}</p>
-            <p>{userProfile.bio}</p>
+            <p>
+              <em>You can also call me: </em>
+              {userProfile.alias}
+            </p>
+            <p>
+              <em>I am from: </em>
+              {userProfile.city}
+            </p>
+            <p>
+              {" "}
+              <em>A little bit about me: </em>
+              {userProfile.bio}
+            </p>
           </div>
-          <button className="littleButton" onClick={openEditor}>
-            edit
-          </button>
-          <button className="littleButton" onClick={deleteDocument}>
-            delete
-          </button>
+          <div>
+            <button className="littleButton" onClick={openEditor}>
+              edit
+            </button>
+            <button className="littleButton" onClick={deleteDocument}>
+              delete
+            </button>
+          </div>
         </div>
       </>
     );
